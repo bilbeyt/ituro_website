@@ -40,7 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contact',
     'gallery',
+    'pages',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,6 +129,18 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
+PAGES = (
+    ("common_knowlodge", _("Common Knowledge And Purposes")),
+    ("team", _("Organization Team")),
+    ("club", _("Control And Automation Club")),
+    ("past_organizations", _("Past Organizations")),
+    ("media", _("Media")),
+    ("faq", _("Frequently Asked Questions")),
+    ("common_rules", _("Common Rules")),
+    ("organization_rules", _("Organization Rules")),
+    ("home", _("Home")),
+)
+
 GALLERY_PAGES = (
     ('line_follower', _('Line Follower')),
     ('micro_sumo', _('Micro Sumo')),
@@ -136,6 +155,24 @@ GALLERY_PAGES = (
     ('common', _('Common')),
 )
 
+CATEGORIES = (
+    ('line_follower', _('Line Follower')),
+    ('micro_sumo', _('Micro Sumo')),
+    ('fire_fighter', _('Fire Fighter')),
+    ('basketball', _('Basketball')),
+    ('stair_climbing', _('Stair Climbing')),
+    ('maze', _('Maze')),
+    ('color_selecting', _('Color Selecting')),
+    ('self_balancing', _('Self Balancing')),
+    ('scenario', _('Scenario')),
+    ('innovative', _('Innovative')),
+)
+
+NEWS_CATEGORIES = (
+    ("danger", _("Caution")),
+    ("info", _("Info")),
+    ("success", _("Happy")),
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
