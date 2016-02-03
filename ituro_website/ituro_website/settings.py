@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'ckeditor',
     'ckeditor_uploader',
+    'sponsorship',
 ]
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
@@ -138,6 +139,7 @@ PAGES = (
     ("faq", _("Frequently Asked Questions")),
     ("common_rules", _("Common Rules")),
     ("organization_rules", _("Organization Rules")),
+    ("past_sponsors", _("Past Sponsors")),
     ("home", _("Home")),
 )
 
@@ -172,6 +174,15 @@ NEWS_CATEGORIES = (
     ("danger", _("Caution")),
     ("info", _("Info")),
     ("success", _("Happy")),
+)
+
+SPONSOR_TYPES = (
+    ("platin", _("Platin")),
+    ("gold", _("Gold")),
+    ("silver", _("Silver")),
+    ("bronze", _("Bronze")),
+    ("service", _("Service")),
+    ("media", _("Media")),
 )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
