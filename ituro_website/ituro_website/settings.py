@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contact',
+    'gallery',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -121,9 +122,30 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
-
+GALLERY_PAGES = (
+    ('line_follower', _('Line Follower')),
+    ('micro_sumo', _('Micro Sumo')),
+    ('fire_fighter', _('Fire Fighter')),
+    ('basketball', _('Basketball')),
+    ('stair_climbing', _('Stair Climbing')),
+    ('maze', _('Maze')),
+    ('color_selecting', _('Color Selecting')),
+    ('self_balancing', _('Self Balancing')),
+    ('scenario', _('Scenario')),
+    ('innovative', _('Innovative')),
+    ('common', _('Common')),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.abspath(
+    os.path.join(BASE_DIR, os.pardir, "public", "static"))
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.abspath(
+    os.path.join(BASE_DIR, os.pardir, "public", "media"))

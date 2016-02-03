@@ -4,6 +4,7 @@ from contact.models import TeamMember, Team
 
 class TeamMemberInlineAdmin(admin.TabularInline):
     model = TeamMember
+    extra = 1
 
 
 class TeamAdmin(admin.ModelAdmin):
