@@ -63,3 +63,4 @@ target/
 
 #ituro_website
 ituro_website/db.sqlite3
+public/
