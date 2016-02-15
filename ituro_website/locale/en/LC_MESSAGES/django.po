@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-13 16:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ituro_website/settings.py:59
+msgid "English"
+msgstr ""
+
+#: ituro_website/settings.py:60
+msgid "Turkish"
+msgstr ""
+
+#: ituro_website/settings.py:68
+msgid "Hot!"
+msgstr ""
+
+#: ituro_website/settings.py:69 templates/homepage.html.py:22
+msgid "Information"
+msgstr ""
+
+#: ituro_website/settings.py:70 templates/homepage.html.py:20
+msgid "Important"
+msgstr ""
+
+#: ituro_website/urls.py:18
+msgid "^gallery/"
+msgstr ""
+
+#: post/urls.py:9
+msgid "^about/(?P<slug>[-_\\w]+)/$"
+msgstr ""
+
+#: post/urls.py:11
+msgid "^category/(?P<slug>[-_\\w]+)/$"
+msgstr ""
+
+#: post/urls.py:13
+msgid "^sponsorship/(?P<slug>[-_\\w]+)/$"
+msgstr ""
+
+#: post/urls.py:16
+msgid "^news/(?P<slug>[-_\\w]+)/$"
+msgstr ""
+
+#: templates/base.html:14
+msgid "ITU Robot Olympics"
+msgstr ""
+
+#: templates/base.html:47
+msgid "About Us"
+msgstr ""
+
+#: templates/base.html:63
+msgid "Categories"
+msgstr ""
+
+#: templates/base.html:79
+msgid "Sponsorship"
+msgstr ""
+
+#: templates/base.html:95 templates/gallery_detail.html.py:4
+msgid "Gallery"
+msgstr ""
+
+#: templates/base.html:114
+msgid "Register"
+msgstr ""
+
+#: templates/base.html:115
+msgid "Login"
+msgstr ""
+
+#: templates/base.html:149
+msgid "Registered Number Of Robots per Category"
+msgstr ""
+
+#: templates/base.html:154
+msgid "Line Follower"
+msgstr ""
+
+#: templates/base.html:155
+msgid "Basketball"
+msgstr ""
+
+#: templates/base.html:156
+msgid "Micro Sumo"
+msgstr ""
+
+#: templates/base.html:157
+msgid "Fire Fighter"
+msgstr ""
+
+#: templates/base.html:158
+msgid "Stair Climbing"
+msgstr ""
+
+#: templates/base.html:159
+msgid "Maze"
+msgstr ""
+
+#: templates/base.html:160
+msgid "Color Selecting"
+msgstr ""
+
+#: templates/base.html:161
+msgid "Self Balancing"
+msgstr ""
+
+#: templates/base.html:162
+msgid "Scenario"
+msgstr ""
+
+#: templates/base.html:163
+msgid "Innovative"
+msgstr ""
+
+#: templates/base.html:190
+msgid "IT Department"
+msgstr ""
+
+#: templates/category_detail.html:13
+msgid "To download category rules"
+msgstr ""
+
+#: templates/category_detail.html:13
+msgid "click here."
+msgstr ""
+
+#: templates/category_detail.html:18
+msgid "Category Media"
+msgstr ""
+
+#: templates/category_detail.html:21
+msgid "Category Gallery"
+msgstr ""
+
+#: templates/homepage.html:5
+msgid "News and Announcements"
+msgstr ""
+
+#: templates/homepage.html:18
+msgid "Hot!!"
+msgstr ""
+
+#: templates/homepage.html:25
+msgid "[Continue]"
+msgstr ""
+
+#: templates/homepage.html:33
+msgid "Previous Messages"
+msgstr ""
+
+#: templates/homepage.html:36
+msgid "Next Messages"
+msgstr ""
+
+#: templates/homepage.html:43
+msgid "Istanbul Technical University Robot Olympics"
+msgstr ""
+
+#: templates/homepage.html:46
+msgid "Date"
+msgstr ""
+
+#: templates/homepage.html:46
+msgid "April"
+msgstr ""
+
+#: templates/homepage.html:48
+msgid "Place"
+msgstr ""
+
+#: templates/homepage.html:48
+msgid "ITU Süleyman Demirel Culture Center"
+msgstr ""
+
+#: templates/homepage.html:51
+msgid "Trailer"
+msgstr ""

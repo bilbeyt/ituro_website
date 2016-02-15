@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="col-md-8">
+    <h3 class=""><b>{{ object.title }}</b></h3>
+    <hr>
+    <!-- <h4><strong>Görev Tanımı</strong></h2>
+    <p>Bu kategoride robotlar, beyaz pist üzerine siyah veya siyah pist üzerine beyaz çizgilerin üstünde kalarak parkuru tamamlamaya çalışırlar.</p>
+    <hr>
+    <p class="text-center"><button class="btn btn-primary"><a style="color: white" href="#" target="_blank">Kategori kurallarını indirmek için tıklayınız.</a></button></p> -->
+    <div>
+        <object data="{{ object.document.url }}" type="application/pdf" width="100%" height="540px">
+            <p>{% trans "To download category rules" %}<a href="{{ object.document.url }}">{% trans "click here." %}</a></p>
+        </object>
+    </div>
+</div>
+<div class="col-md-4 text-center">
+    <h3 class="text-left"><b>{% trans "Category Media" %}</b></h3>
+    <hr>
+    <p><img width="360px" src="{{ object.gallery.photo_set.all.0.img.url }}"></p>
+    <p><button class="btn btn-primary btn-sm"><a href="{% url "gallery:gallery_detail" object.gallery.slug %}" style="color: white">{% trans "Category Gallery" %}</a></button></p>
+    <hr>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="100%" src="{{ object.url }}" frameborder="0" allowfullscreen="" height="100"></iframe>
+    </div>
+</div>
+{% endblock %}

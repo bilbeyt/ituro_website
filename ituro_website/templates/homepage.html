@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="col-md-8">
+    <h3 class=""><b>{% trans "News and Announcements" %}</b></h3>
+    <hr>
+    <ul class="media-list">
+        {% for news in news_list %}
+
+        <li class="media">
+            <a class="pull-left" href="{% url 'post:news_detail' news.slug %}">
+
+                <img class="media-object" src="{{ news.img.img.url }}" style="margin-top: 15px" width="60">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{ news.title }}
+                  {% if  news.types == "danger" %}
+                  <span class="label label-{{news.types}}" style="float: right;">{% trans "Hot!!" %}</span>
+                  {% elif news.types == "primary" %}
+                  <span class="label label-{{news.types}}" style="float: right;">{% trans "Important" %}</span>
+                  {%  elif news.types == "info" %}
+                  <span class="label label-{{news.types}}" style="float: right;">{% trans "Information" %}</span>
+                  {% endif %}
+                </h4>{{ news.short_description }}
+                <a href="{% url 'post:news_detail' news.slug %}">{% trans "[Continue]" %}</a>
+            </div>
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+    <ul class="pager" style="">
+        <li>
+            <a href="#">{% trans "Previous Messages" %}</a>
+        </li>
+        <li>
+            <a href="#">{% trans "Next Messages" %}</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3><b>{% trans "Istanbul Technical University Robot Olympics" %}</b></h3>
+        </div>
+        <div class="panel-body">
+            <h4><b>{% trans "Date" %}:</b> 8-9-10 {% trans "April" %} 2016</h4>
+        </div>
+        <div class="panel-footer"><h4><b>{%trans "Place" %}: </b><a class="text-primary" href="https://www.google.com.tr/maps/place/S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi/@41.106636,29.022403,15z/data=!4m2!3m1!1s0x0:0x6445dfa6db7ef717" target="_blank">{% trans "ITU Süleyman Demirel Culture Center" %}</a></h4></div>
+    </div>
+    <hr>
+    <h4 class="text-center"><b>{% trans "Trailer" %}</b></h4>
+
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="{{ homepage.url|safe }}"></iframe>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="text-center"><b>{{ object.title }}</b></h3>
+<hr>
+{{ object.content|safe }}
+{% endblock %}
