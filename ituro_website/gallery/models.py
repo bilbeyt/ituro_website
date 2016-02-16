@@ -54,9 +54,9 @@ def photo_thumbnail_handler(sender,instance,*args,**kwargs):
     image = Img.open(StringIO.StringIO(instance.img.read()))
     image.thumbnail((100,100), Img.ANTIALIAS)
     output = StringIO.StringIO()
-    image.save(output, format='JPEG', quality=90)
+    image.save(output, format='PNG',optimize=True)
     output.seek(0)
-    instance.thumbnail= InMemoryUploadedFile(output,'ImageField', "%s" %instance.img.name.split(".")[0], 'image/jpeg', output.len, None)
+    instance.thumbnail= InMemoryUploadedFile(output,'ImageField', "%s.png" %instance.img.name.split(".")[0], 'image/png', output.len, None)
 
 @receiver(pre_save,sender=Gallery)
 def Gallery_slug_handler(sender,instance,*args,**kwargs):

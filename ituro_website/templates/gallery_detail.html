@@ -3,33 +3,33 @@
 {% block content %}
 <h3 class="text-center"><b>{% trans "Gallery" %}| {{ object.title }}</b></h3>
 <hr>
-<div id="links" class="links row">
+<div id="gallery" style="margin:0px auto; display:none;">
   {% for photo in object.photo_set.all %}
-    <div class="col-md-3" style="margin-bottom: 10px; height: 100"><a href="{{ photo.img.url }}" title="{{ photo.title }}">
-        <img src="{{ photo.thumbnail.url }}" alt="{{ photo.title }}" class="img-responsive">
-    </a></div>
+    <img alt="{{photo.title}}"
+         src="{{photo.thumbnail.url}}"
+         data-image="{{photo.img.url}}"
+         data-description="{{photo.title}}">
   {% endfor %}
 </div>
-<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-<ol class="indicator"></ol>
+<div class="text-center" style="float: center;">
+  
+    <script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#gallery").unitegallery({
+            gallery_theme: "compact",
+            gallery_carousel:false,
+            slider_loader_type: 7,
+            slider_enable_arrows: true,
+            slider_enable_play_button: false,
+            slider_enable_zoom_panel: false,
+            slider_videoplay_button_type: "round",
+            strippanel_enable_handle: false,
+            thumb_selected_border_width: 3,
+            thumb_selected_border_color: "#566472",
+            thumb_transition_easing: "linear",
+        });
+    });
+    </script>
 </div>
-<script src="{% static "js/blueimp-gallery.min.js" %}"></script>
-<script>
-    document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-    link = target.src ? target.parentNode : target,
-    options = {index: link, event: event},
-    links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-    };
-</script>
 
 {% endblock %}

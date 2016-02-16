@@ -5,37 +5,96 @@
     <h3 class=""><b>{% trans "News and Announcements" %}</b></h3>
     <hr>
     <ul class="media-list">
-        {% for news in news_list %}
 
-        <li class="media">
-            <a class="pull-left" href="{% url 'post:news_detail' news.slug %}">
 
-                <img class="media-object" src="{{ news.img.img.url }}" style="margin-top: 15px" width="60">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">{{ news.title }}
-                  {% if  news.types == "danger" %}
-                  <span class="label label-{{news.types}}" style="float: right;">{% trans "Hot!!" %}</span>
-                  {% elif news.types == "primary" %}
-                  <span class="label label-{{news.types}}" style="float: right;">{% trans "Important" %}</span>
-                  {%  elif news.types == "info" %}
-                  <span class="label label-{{news.types}}" style="float: right;">{% trans "Information" %}</span>
-                  {% endif %}
-                </h4>{{ news.short_description }}
-                <a href="{% url 'post:news_detail' news.slug %}">{% trans "[Continue]" %}</a>
-            </div>
-        </li>
-        <hr>
-        {% endfor %}
+        <div id="messages">
+        </div>
+
+
     </ul>
+
+
     <ul class="pager" style="">
         <li>
-            <a href="#">{% trans "Previous Messages" %}</a>
+            <a id="news_down" href="#">{% trans "Previous Messages" %}</a>
         </li>
         <li>
-            <a href="#">{% trans "Next Messages" %}</a>
+            <a id="news_up" href="#">{% trans "Next Messages" %}</a>
         </li>
     </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+    function print(bottom, top){
+      var titles = [];
+      var slugs = [];
+      var types = [];
+      var urls = [];
+      var short_descriptions = [];
+      {% for news in news_list %}
+      titles.push('{{news.title}}');
+      slugs.push('{{news.slug}}');
+      types.push('{{news.types}}');
+      urls.push('{{news.img.img.url}}');
+      short_descriptions.push('{{news.short_description}}');
+      {% endfor %}
+        for(i=bottom;i<=top;i++){
+          if (titles[i] !== undefined && slugs[i] !==undefined && types[i] !== undefined && urls[i] !== undefined && short_descriptions[i] !== undefined){
+          first_link = "<li class='media'><a class='pull-left' href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+          image = "<img class='media-object' src='0' style='margin-top: 15px' width='60'></a>".replace(0,urls[i]);
+          if (types[i] == "danger"){
+            type = "<span class='label label-danger' style='float: right;'>{% trans 'Hot!!' %}</span>";
+          }
+          else if (types[i] == "primary"){
+            type = "<span class='label label-primary' style='float: right;'>{% trans 'Important' %}</span>";
+          }
+          else if (types[i] == "info"){
+            "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
+          }
+          second_link = "<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+          media_body = "<div class='media-body'><h4 class='media-heading'>".concat(titles[i]).concat(type,"</h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
+          message = first_link.concat(image,media_body,"</div></li><hr>");
+
+        $("#messages").append(message);
+      }
+      }
+    }
+    function check_buttons(bottom,top, length){
+      if(bottom<=0){
+        $("#news_down").hide();
+      }
+      else{
+        $("#news_down").show();
+      }
+      if(top>length){
+        $("#news_up").hide();
+      }
+      else{
+        $("#news_up").show();
+      }
+    }
+          $(document).ready(function(){
+            var length = {{news_list|length}}
+            var bottom = 0;
+            var top = 3;
+            check_buttons(bottom,top,length);
+            print(bottom,top);
+
+            $("#news_up").click(function(){
+              bottom = bottom +4;
+              top = top + 4;
+              $("#messages").empty();
+              check_buttons(bottom,top,length);
+              print(bottom,top);
+            });
+            $("#news_down").click(function(){
+              bottom = bottom-4;
+              top = top-4;
+              $("#messages").empty();
+              check_buttons(bottom,top,length);
+              print(bottom,top);
+            });
+          });
+    </script>
 </div>
 <div class="col-md-4">
     <div class="panel panel-primary">
@@ -51,7 +110,7 @@
     <h4 class="text-center"><b>{% trans "Trailer" %}</b></h4>
 
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe src="{{ homepage.url|safe }}"></iframe>
+        <iframe src="{{homepage.url}}"></iframe>
     </div>
 
 </div>
