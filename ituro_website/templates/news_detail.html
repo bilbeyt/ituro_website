@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="col-md-8">
-  {{ object.content|safe }}
-  <h6 class="text-right"><i class="fa fa-calendar pull-right"></i>{{ object.created_at }}</h6>
-</div>
-<div class="col-md-4">
-    {{ object.url_content|safe }}
-</div>
+    <div class="row">
+        <div class="col-md-8">
+            {{ object.content|safe }}
+            <h6 class="text-right"><i class="fa fa-calendar pull-right"></i>{{ object.created_at }}</h6>
+        </div>
+        <div class="col-md-4">
+            {{ object.url_content|safe }}
+        </div>
+    </div>
 {% endblock %}
