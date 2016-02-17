@@ -157,5 +157,7 @@ CKEDITOR_CONFIGS = {
           'removePlugins' : 'stylesheetparser',
           "extraPlugins" : "tliyoutube,accordion,ckeditor-gwf-plugin,btgrid",
           "font_names" : "GoogleWebFonts",
+          "allowedContent": True,
+
     },
 }

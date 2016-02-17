@@ -126,9 +126,9 @@
                         <li><a href="{% url "post:common_detail" common.slug %}">{{ common.title }}</a></li>
                         {% endfor %}
                         {% if language == 'en' %}
-                        <li><button class="btn btn-link navbar-btn"><a id="language-button" href="">Türkçe<span class="sr-only">(current)</span></a></button></li>
+                        <li><button id="language-button" class="btn btn-link navbar-btn"><a href="">Türkçe<span class="sr-only">(current)</span></a></button></li>
                         {% elif language == "tr" %}
-                        <li><button class="btn btn-link navbar-btn"><a id="language-button" href="">English<span class="sr-only">(current)</span></a></button></li>
+                        <li><button id="language-button" class="btn btn-link navbar-btn"><a href="">English<span class="sr-only">(current)</span></a></button></li>
                         {% endif %}
                     </ul>
                     </div><!--/.nav-collapse -->
@@ -173,7 +173,7 @@
             <!-- Bootstrap core JavaScript
             ================================================== -->
             <!-- Placed at the end of the document so the pages load faster -->
-          
+
             <script src="{% static "js/change_language.js" %}"></script>
             <script src="{% static "js/bootstrap.min.js" %}"></script>
 
