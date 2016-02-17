@@ -1,117 +1,154 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-<div class="col-md-8">
-    <h3 class=""><b>{% trans "News and Announcements" %}</b></h3>
-    <hr>
-    <ul class="media-list">
+<div class="row">
+  <div class="col-md-8">
+      <h3 class=""><b>{% trans "News and Announcements" %}</b></h3>
+      <hr>
+      <ul class="media-list">
 
 
-        <div id="messages">
-        </div>
+          <div id="messages">
+          </div>
 
 
-    </ul>
+      </ul>
 
 
-    <ul class="pager" style="">
-        <li>
-            <a id="news_down" href="#">{% trans "Previous Messages" %}</a>
-        </li>
-        <li>
-            <a id="news_up" href="#">{% trans "Next Messages" %}</a>
-        </li>
-    </ul>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script>
-    function print(bottom, top){
-      var titles = [];
-      var slugs = [];
-      var types = [];
-      var urls = [];
-      var short_descriptions = [];
-      {% for news in news_list %}
-      titles.push('{{news.title}}');
-      slugs.push('{{news.slug}}');
-      types.push('{{news.types}}');
-      urls.push('{{news.img.img.url}}');
-      short_descriptions.push('{{news.short_description}}');
-      {% endfor %}
-        for(i=bottom;i<=top;i++){
-          if (titles[i] !== undefined && slugs[i] !==undefined && types[i] !== undefined && urls[i] !== undefined && short_descriptions[i] !== undefined){
-          first_link = "<li class='media'><a class='pull-left' href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-          image = "<img class='media-object' src='0' style='margin-top: 15px' width='60'></a>".replace(0,urls[i]);
-          if (types[i] == "danger"){
-            type = "<span class='label label-danger' style='float: right;'>{% trans 'Hot!!' %}</span>";
-          }
-          else if (types[i] == "primary"){
-            type = "<span class='label label-primary' style='float: right;'>{% trans 'Important' %}</span>";
-          }
-          else if (types[i] == "info"){
-            "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
-          }
-          second_link = "<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-          media_body = "<div class='media-body'><h4 class='media-heading'>".concat(titles[i]).concat(type,"</h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
-          message = first_link.concat(image,media_body,"</div></li><hr>");
+      <ul class="pager" style="">
+          <li>
+              <a id="news_down" href="#">{% trans "Previous Messages" %}</a>
+          </li>
+          <li>
+              <a id="news_up" href="#">{% trans "Next Messages" %}</a>
+          </li>
+      </ul>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <script>
+      function print(bottom, top){
+        var titles = [];
+        var slugs = [];
+        var types = [];
+        var urls = [];
+        var short_descriptions = [];
+        {% for news in news_list %}
+        titles.push('{{news.title}}');
+        slugs.push('{{news.slug}}');
+        types.push('{{news.types}}');
+        urls.push('{{news.img.img.url}}');
+        short_descriptions.push('{{news.short_description}}');
+        {% endfor %}
+          for(i=bottom;i<=top;i++){
+            if (titles[i] !== undefined && slugs[i] !==undefined && types[i] !== undefined && urls[i] !== undefined && short_descriptions[i] !== undefined){
+            first_link = "<li class='media'><a class='pull-left' href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+            image = "<img class='media-object' src='0' style='margin-top: 15px' width='60'></a>".replace(0,urls[i]);
+            if (types[i] == "danger"){
+              type = "<span class='label label-danger' style='float: right;'>{% trans 'Hot!!' %}</span>";
+            }
+            else if (types[i] == "primary"){
+              type = "<span class='label label-primary' style='float: right;'>{% trans 'Important' %}</span>";
+            }
+            else if (types[i] == "info"){
+              "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
+            }
+            second_link = "<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+            media_body = "<div class='media-body'><h4 class='media-heading'>".concat(titles[i]).concat(type,"</h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
+            message = first_link.concat(image,media_body,"</div></li><hr>");
 
-        $("#messages").append(message);
+          $("#messages").append(message);
+        }
+        }
       }
+      function check_buttons(bottom,top, length){
+        if(bottom<=0){
+          $("#news_down").hide();
+        }
+        else{
+          $("#news_down").show();
+        }
+        if(top>length){
+          $("#news_up").hide();
+        }
+        else{
+          $("#news_up").show();
+        }
       }
-    }
-    function check_buttons(bottom,top, length){
-      if(bottom<=0){
-        $("#news_down").hide();
-      }
-      else{
-        $("#news_down").show();
-      }
-      if(top>length){
-        $("#news_up").hide();
-      }
-      else{
-        $("#news_up").show();
-      }
-    }
-          $(document).ready(function(){
-            var length = {{news_list|length}}
-            var bottom = 0;
-            var top = 3;
-            check_buttons(bottom,top,length);
-            print(bottom,top);
-
-            $("#news_up").click(function(){
-              bottom = bottom +4;
-              top = top + 4;
-              $("#messages").empty();
+            $(document).ready(function(){
+              var length = {{news_list|length}}
+              var bottom = 0;
+              var top = 3;
               check_buttons(bottom,top,length);
               print(bottom,top);
+
+              $("#news_up").click(function(){
+                bottom = bottom +4;
+                top = top + 4;
+                $("#messages").empty();
+                check_buttons(bottom,top,length);
+                print(bottom,top);
+              });
+              $("#news_down").click(function(){
+                bottom = bottom-4;
+                top = top-4;
+                $("#messages").empty();
+                check_buttons(bottom,top,length);
+                print(bottom,top);
+              });
             });
-            $("#news_down").click(function(){
-              bottom = bottom-4;
-              top = top-4;
-              $("#messages").empty();
-              check_buttons(bottom,top,length);
-              print(bottom,top);
-            });
-          });
-    </script>
+      </script>
+  </div>
+  <div class="col-md-4">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <h3><b>{% trans "Istanbul Technical University Robot Olympics" %}</b></h3>
+          </div>
+          <div class="panel-body">
+              <h4><b>{% trans "Date" %}:</b> 8-9-10 {% trans "April" %} 2016</h4>
+          </div>
+          <div class="panel-footer"><h4><b>{%trans "Place" %}: </b><a class="text-primary" href="https://www.google.com.tr/maps/place/S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi/@41.106636,29.022403,15z/data=!4m2!3m1!1s0x0:0x6445dfa6db7ef717" target="_blank">{% trans "ITU Süleyman Demirel Culture Center" %}</a></h4></div>
+      </div>
+      <hr>
+      <h4 class="text-center"><b>{% trans "Trailer" %}</b></h4>
+
+      <div class="embed-responsive embed-responsive-16by9">
+          <iframe src="{{homepage.url}}"></iframe>
+      </div>
+  </div>
 </div>
-<div class="col-md-4">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3><b>{% trans "Istanbul Technical University Robot Olympics" %}</b></h3>
-        </div>
-        <div class="panel-body">
-            <h4><b>{% trans "Date" %}:</b> 8-9-10 {% trans "April" %} 2016</h4>
-        </div>
-        <div class="panel-footer"><h4><b>{%trans "Place" %}: </b><a class="text-primary" href="https://www.google.com.tr/maps/place/S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi/@41.106636,29.022403,15z/data=!4m2!3m1!1s0x0:0x6445dfa6db7ef717" target="_blank">{% trans "ITU Süleyman Demirel Culture Center" %}</a></h4></div>
-    </div>
+<div class="container text-center col-md-12">
     <hr>
-    <h4 class="text-center"><b>{% trans "Trailer" %}</b></h4>
-
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe src="{{homepage.url}}"></iframe>
+    <p><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
+        <div class="table-responsive" style="margin-bottom: -25px">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="">
+                    <th class="col-md-1 text-center">{% trans "Line Follower" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Basketball" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Micro Sumo" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Fire Fighter" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Stair Climbing" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Maze" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Color Selecting" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Self Balancing" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Scenario" %}</th>
+                    <th class="col-md-1 text-center">{% trans "Innovative" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td class="text-center">312</td>
+                    <td>32</td>
+                    <td>16</td>
+                    <td>22</td>
+                    <td>64</td>
+                    <td>19</td>
+                    <td>5</td>
+                    <td>123</td>
+                    <td>66</td>
+                    <td>42</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
 </div>
 {% endblock %}

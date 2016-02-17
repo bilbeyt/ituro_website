@@ -53,7 +53,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "About Us" %}<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "About Us" %} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                               {% for about in context.about_list %}
                               {% if not about.is_divided %}
@@ -69,7 +69,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Categories" %}<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Categories" %} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {% for category in context.category_list %}
                                 {% if not category.is_divided %}
@@ -85,7 +85,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Sponsorship" %}<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Sponsorship" %} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {% for sponsorship in context.sponsorship_list %}
                                 {% if not sponsorship.is_divided %}
@@ -101,7 +101,7 @@
                             </ul>
                         </li>-->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Gallery" %}<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Gallery" %} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
 
                               {% get_gallery_list language as list %}
@@ -120,22 +120,22 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><button class="btn btn-primary active navbar-btn"><a target="_blank" href="http://ituro.otokon.org/accounts/register/">{% trans "Register" %}</a></button></li>
-                        <li><a target="_blank" href="http://ituro.otokon.org/accounts/login/">{% trans "Login" %}</a></li>
+                        <li><button class="btn btn-primary active navbar-btn"><a target="_blank" href="http://sis.ituro.org/accounts/register/">{% trans "Register" %}</a></button></li>
+                        <li><a target="_blank" href="http://sis.ituro.org/accounts/login/">{% trans "Login" %}</a></li>
                         {% for common in context.common_list %}
                         <li><a href="{% url "post:common_detail" common.slug %}">{{ common.title }}</a></li>
                         {% endfor %}
                         {% if language == 'en' %}
-                        <li><a id="language-button" href="">Türkçe</a></li>
+                        <li><button class="btn btn-link navbar-btn"><a id="language-button" href="">Türkçe<span class="sr-only">(current)</span></a></button></li>
                         {% elif language == "tr" %}
-                        <li><a id="language-button" href="">English</a></li>
+                        <li><button class="btn btn-link navbar-btn"><a id="language-button" href="">English<span class="sr-only">(current)</span></a></button></li>
                         {% endif %}
                     </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </nav>
             <div class="container">
-              <form action="{% url 'set_language' %}" method="post" style="display:none;">
+                <form action="{% url 'set_language' %}" method="post" style="display:none;">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}" />
                     {% if language == "en" %}
@@ -144,64 +144,22 @@
                     <input name="language" type="hidden" value="en">
                     {% endif %}
                     <input type="submit" value="Go" id="language-form-submit" />
-                  </form>
-                <div class="row">
+                </form>
                   {% block content %}
 
                   {% endblock %}
-
-                </div>
-            </div>
-            <div class="container text-center">
-                <hr>
-                <p><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
-                    <div class="table-responsive" style="margin-bottom: -25px">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr class="">
-                                <th class="col-md-1 text-center">{% trans "Line Follower" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Basketball" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Micro Sumo" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Fire Fighter" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Stair Climbing" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Maze" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Color Selecting" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Self Balancing" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Scenario" %}</th>
-                                <th class="col-md-1 text-center">{% trans "Innovative" %}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="active">
-                                <td class="text-center">312</td>
-                                <td>32</td>
-                                <td>16</td>
-                                <td>22</td>
-                                <td>64</td>
-                                <td>19</td>
-                                <td>5</td>
-                                <td>123</td>
-                                <td>66</td>
-                                <td>42</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
             <footer class="container">
                 <hr>
                 <div class="row">
-                    <div class="col-md-1 col-sm-2 col-xs-3 text-left">
-                        <img width="88px" style="margin-top: 18px" src="{% static "img/ituro_text.png" %}">
+                    <div class="col-md-4 col-sm-4 col-xs-12 text-left">
+                        <img width="88px" style="margin-top: 18px" src="{% static "img/ituro_text.png" %}"><span style="position: absolute; bottom: -2px; margin-left: 5px">{% trans "IT Department" %} | <i>2016</i></span>
                     </div>
-                    <div class="col-md-3 col-sm-10 col-xs-9 text-left" style="margin-top: 28px;">
-                        <p>{% trans "IT Department" %} | <i>2016</i></p>
-                    </div>
-                    <div class="col-md-4 col-sm-5 col-xs-5 text-center">
+                    <div class="col-md-4 col-sm-4 col-xs-12 text-center">
                         <a href="http://www.itu.edu.tr" target="_blank"><img width="75px" style="margin-top: 5px; padding: 5px" src="{% static "img/itu.png" %}"></a>
                         <a href="http://www.otokon.itu.edu.tr" target="_blank"><img width="120px" style="margin-top: 12px; padding: 5px" src="{% static "img/otokon_wide.png" %}"></a>
                     </div>
-                    <div class="col-md-4 col-sm-7 col-xs-7 text-right" style="margin-bottom: 10px">
+                    <div class="col-md-4 col-sm-4 col-xs-12 text-right" style="margin-bottom: 10px">
                         <div class="text-right">
                             <a href="https://www.facebook.com/ituro/" class="btn btn-social-icon btn-facebook" target="_blank" style="background-color: #3b5998; color: white"> <i class="fa fa-facebook"></i></a>
                             <a href="http://twitter.com/ituroorg" class="btn btn-social-icon btn-twitter" target="_blank" style="background-color: #55acee; color: white"><i class="fa fa-twitter"></i></a>
