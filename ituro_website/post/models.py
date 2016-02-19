@@ -29,8 +29,8 @@ class CommonEntry(models.Model):
 
 class NewsEntry(models.Model):
     language_code = models.CharField(choices=settings.LANGUAGES,max_length=2)
-    title = models.CharField(max_length=100)
-    short_description = models.CharField(max_length=100)
+    title = models.CharField(max_length=70)
+    short_description = models.CharField(max_length=190)
     slug = models.SlugField(max_length=100)
     uid = models.PositiveSmallIntegerField()
     types = models.CharField(choices=settings.NEWS_TYPES, max_length=50)
