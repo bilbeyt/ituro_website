@@ -1,8 +1,6 @@
 from django.contrib import admin
 from post.models import CommonEntry, NewsEntry, CategoryEntry, HomePageEntry, \
     AboutEntry, SponsorshipEntry
-from rollyourown.seo.admin import register_seo_admin
-from post.seo import MyMetadata
 
 
 class CommonEntryAdmin(admin.ModelAdmin):
@@ -53,4 +51,3 @@ admin.site.register(NewsEntry,NewsEntryAdmin)
 admin.site.register(SponsorshipEntry,SponsorshipEntryAdmin)
 admin.site.register(AboutEntry,AboutEntryAdmin)
 admin.site.register(HomePageEntry,HomePageEntryAdmin)
-register_seo_admin(admin.site, MyMetadata)

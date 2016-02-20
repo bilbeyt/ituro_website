@@ -1,4 +1,4 @@
-{% load staticfiles i18n get_gallery_list get_post_list compress seo %}
+{% load staticfiles i18n get_gallery_list get_post_list compress %}
 {% get_current_language as language %}
 {% get_post_list language as context %}
 <!DOCTYPE html>
@@ -7,7 +7,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% get_metadata %}
+        <meta name="description" content="ITU Robot Olympics">
+        <meta name="keywords" content="ITU,robot,olympics,line_follower,SDKM,OTOKON,ITURO">
+        <meta name="copyright" content="ITURO website is made by OTOKON IT Department 2016"
+        <meta name="robots" content="index,follow">
+        <title>{% trans "ITU Robot Olympics" %}</title>
         <link rel="icon" href="{% static "img/ituro.ico" %}">
         {% compress css %}
         <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">

@@ -21,7 +21,7 @@ sitemaps = {
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ckeditor/', include("ckeditor_uploader.urls")),
-    url(r'^robots\.txt$', include('robots.urls')),
+    url(r'^robots\.txt', include('robots.urls')),
 ]
 
 urlpatterns += i18n_patterns(
