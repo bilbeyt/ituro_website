@@ -5,6 +5,7 @@ from post.views import HomePageDetailView, AboutDetailView, \
 
 
 urlpatterns = [
+
     url(r'^$', HomePageDetailView.as_view(), name="homepage"),
     url(_(r'^about/(?P<slug>[-_\w]+)/$'), AboutDetailView.as_view(),
         name="about_detail"),

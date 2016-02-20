@@ -17,10 +17,10 @@ class PhotoAdmin(admin.ModelAdmin):
 
 
 class GalleryAdmin(admin.ModelAdmin):
-    list_display = ["title", "slug","language_code", "order","uid","created_at"]
+    list_display = ["title", "old_slug","slug","language_code", "order","uid","created_at"]
     list_filter = ["language_code"]
     search_fields = ["uid", "title"]
-    exclude = ["slug"]
+    exclude = ["old_slug","slug"]
     inlines = [PhotoInlineAdmin]
 
 

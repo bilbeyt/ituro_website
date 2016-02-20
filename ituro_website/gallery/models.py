@@ -1,7 +1,11 @@
 from __future__ import unicode_literals
 from django.conf import settings
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
+from django.core.urlresolvers import reverse
+from django.contrib.sitemaps import Sitemap
+from django.contrib.redirects.models import Redirect
 from django.template.defaultfilters import slugify
+from django.contrib.sitemaps import ping_google
 from django.dispatch import receiver
 from PIL import Image as Img
 import StringIO
@@ -21,6 +25,7 @@ class Gallery(models.Model):
     uid = models.PositiveSmallIntegerField()
     order = models.PositiveSmallIntegerField()
     is_divided = models.BooleanField(default=False)
+    old_slug = models.SlugField(max_length=100)
     slug = models.SlugField(max_length=100)
     is_public = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -29,6 +34,9 @@ class Gallery(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("gallery:gallery_detail",args=(self.slug,))
 
 
 class Photo(models.Model):
@@ -60,4 +68,16 @@ def photo_thumbnail_handler(sender,instance,*args,**kwargs):
 
 @receiver(pre_save,sender=Gallery)
 def Gallery_slug_handler(sender,instance,*args,**kwargs):
+    instance.old_slug = instance.slug
     instance.slug = slugify(instance.title)
+
+@receiver(post_save,sender=Gallery,dispatch_uid="gallery_identifier")
+def Gallery_slug_change_handler(sender,instance,created,**kwargs):
+    try:
+        ping_google()
+    except Exception:
+        pass
+    if not created:
+        old_link = reverse("gallery:gallery_detail",args=(instance.old_slug,))
+        new_link=reverse("gallery:gallery_detail",args=(instance.slug,))
+        Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
