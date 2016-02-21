@@ -3,6 +3,7 @@ from django.conf import settings
 from django.db.models.signals import pre_save, post_save
 from django.core.urlresolvers import reverse
 from django.contrib.sitemaps import Sitemap
+from django.utils.translation import activate
 from django.contrib.redirects.models import Redirect
 from django.template.defaultfilters import slugify
 from django.contrib.sitemaps import ping_google
@@ -73,11 +74,16 @@ def Gallery_slug_handler(sender,instance,*args,**kwargs):
 
 @receiver(post_save,sender=Gallery,dispatch_uid="gallery_identifier")
 def Gallery_slug_change_handler(sender,instance,created,**kwargs):
-    try:
-        ping_google()
-    except Exception:
-        pass
     if not created:
+        language_code = instance.language_code
+        activate(language_code)
         old_link = reverse("gallery:gallery_detail",args=(instance.old_slug,))
         new_link=reverse("gallery:gallery_detail",args=(instance.slug,))
-        Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+        if new_link != old_link:
+            Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+            try:
+                ping_google()
+            except Exception:
+                pass
+        else:
+            pass

@@ -9,8 +9,10 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
+from django.utils.translation import activate
 from django.contrib.redirects.models import Redirect
 from django.db import models
+from robots.models import Url
 
 
 def get_upload_path(instance,filename):
@@ -157,44 +159,80 @@ def SponsorshipEntry_slug_handler(sender,instance,*args,**kwargs):
 
 @receiver(post_save,sender=CommonEntry,dispatch_uid="commonentry_identifier")
 def CommonEntry_slug_change_handler(sender,instance,created,**kwargs):
-    try:
-        ping_google()
-    except Exception:
-        pass
     if not created:
+        language_code = instance.language_code
+        activate(language_code)
         old_link = reverse("post:common_detail",args=(instance.old_slug,))
         new_link=reverse("post:common_detail",args=(instance.slug,))
-        Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+        if new_link != old_link:
+            Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+            try:
+                ping_google()
+            except Exception:
+                pass
+        else:
+            pass
+
+@receiver(post_save,sender=NewsEntry,dispatch_uid="newsentry_identifier")
+def NewsEntry_slug_change_handler(sender,instance,created,**kwargs):
+    if not created:
+        language_code = instance.language_code
+        activate(language_code)
+        old_link = reverse("post:news_detail",args=(instance.old_slug,))
+        new_link=reverse("post:news_detail",args=(instance.slug,))
+        if new_link != old_link:
+            Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+            try:
+                ping_google()
+            except Exception:
+                pass
+        else:
+            pass
 
 @receiver(post_save,sender=CategoryEntry,dispatch_uid="categoryentry_identifier")
 def CategoryEntry_slug_change_handler(sender,instance,created,**kwargs):
-    try:
-        ping_google()
-    except Exception:
-        pass
     if not created:
+        language_code = instance.language_code
+        activate(language_code)
         old_link = reverse("post:category_detail",args=(instance.old_slug,))
         new_link=reverse("post:category_detail",args=(instance.slug,))
-        Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+        if new_link != old_link:
+            Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+            try:
+                ping_google()
+            except Exception:
+                pass
+        else:
+            pass
 
 @receiver(post_save,sender=AboutEntry,dispatch_uid="aboutentry_identifier")
 def AboutEntry_slug_change_handler(sender,instance,created,**kwargs):
-    try:
-        ping_google()
-    except Exception:
-        pass
     if not created:
+        language_code = instance.language_code
+        activate(language_code)
         old_link = reverse("post:about_detail",args=(instance.old_slug,))
         new_link=reverse("post:about_detail",args=(instance.slug,))
-        Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+        if new_link != old_link:
+            Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+            try:
+                ping_google()
+            except Exception:
+                pass
+        else:
+            pass
 
 @receiver(post_save,sender=SponsorshipEntry,dispatch_uid="sponsorship_identifier")
 def SponsorshipEntry_slug_change_handler(sender,instance,created,**kwargs):
-    try:
-        ping_google()
-    except Exception:
-        pass
     if not created:
+        language_code = instance.language_code
+        activate(language_code)
         old_link = reverse("post:sponsorship_detail",args=(instance.old_slug,))
         new_link=reverse("post:sponsorship_detail",args=(instance.slug,))
-        Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+        if new_link != old_link:
+            Redirect.objects.create(site_id=1,old_path=old_link,new_path=new_link)
+            try:
+                ping_google()
+            except Exception:
+                pass
+        else:
+            pass
