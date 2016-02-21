@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-13 16:17+0000\n"
+"POT-Creation-Date: 2016-02-21 07:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,178 +18,195 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ituro_website/settings.py:59
+#: ituro_website/settings.py:68
 msgid "English"
 msgstr "İngilizce"
 
-#: ituro_website/settings.py:60
+#: ituro_website/settings.py:69
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: ituro_website/settings.py:68
+#: ituro_website/settings.py:77
 msgid "Hot!"
 msgstr "Sıcak!"
 
-#: ituro_website/settings.py:69 templates/homepage.html.py:22
+#: ituro_website/settings.py:78 templates/homepage.html.py:52
 msgid "Information"
 msgstr "Bilgi"
 
-#: ituro_website/settings.py:70 templates/homepage.html.py:20
+#: ituro_website/settings.py:79 templates/homepage.html.py:49
 msgid "Important"
 msgstr "Önemli"
 
-#: ituro_website/urls.py:18
+#: ituro_website/urls.py:32
 msgid "^gallery/"
 msgstr "^galeri/"
 
-#: post/urls.py:9
+#: post/urls.py:10
 msgid "^about/(?P<slug>[-_\\w]+)/$"
-msgstr "^hakkimizda/(?P<slug>[-_\\w]+)/$"
+msgstr "hakkimizda/(?P<slug>[-_\\w]+)/$"
 
-#: post/urls.py:11
+#: post/urls.py:12
 msgid "^category/(?P<slug>[-_\\w]+)/$"
 msgstr "^kategori/(?P<slug>[-_\\w]+)/$"
 
-#: post/urls.py:13
+#: post/urls.py:14
 msgid "^sponsorship/(?P<slug>[-_\\w]+)/$"
 msgstr "^sponsorluk/(?P<slug>[-_\\w]+)/$"
 
-#: post/urls.py:16
+#: post/urls.py:17
 msgid "^news/(?P<slug>[-_\\w]+)/$"
-msgstr "^haberler/(?P<slug>[-_\\w]+)/$"
+msgstr "haberler/(?P<slug>[-_\\w]+)/$"
+
+#: templates/404.html:6
+msgid "Sorry"
+msgstr "Uzgünüz"
+
+#: templates/404.html:7
+msgid "Page not found."
+msgstr "Sayfa bulunamadı."
+
+#: templates/404.html:9
+msgid "Click here"
+msgstr "Buraya tıklayınız"
+
+#: templates/404.html:9
+msgid " to back to homepage or you can watch this page as long as you want."
+msgstr ""
+" ana sayfaya dönmek için veya istediğiniz sürece bu sayfaya bakabilirsiniz."
 
 #: templates/base.html:14
 msgid "ITU Robot Olympics"
-msgstr "İTÜ Robot Olimpiyatları"
+msgstr "ITU Robot Olimpiyatları"
 
-#: templates/base.html:47
+#: templates/base.html:46
 msgid "About Us"
 msgstr "Hakkımızda"
 
-#: templates/base.html:63
+#: templates/base.html:62
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: templates/base.html:79
+#: templates/base.html:78
 msgid "Sponsorship"
 msgstr "Sponsorluk"
 
-#: templates/base.html:95 templates/gallery_detail.html.py:4
+#: templates/base.html:94 templates/gallery_detail.html.py:4
 msgid "Gallery"
 msgstr "Galeri"
 
-#: templates/base.html:114
+#: templates/base.html:113
 msgid "Register"
 msgstr "Kayıt Ol"
 
-#: templates/base.html:115
+#: templates/base.html:114
 msgid "Login"
 msgstr "Giriş Yap"
 
-#: templates/base.html:149
-msgid "Registered Number Of Robots per Category"
-msgstr "Kategoriye Göre Kayıtlı Robot Sayısı"
-
-#: templates/base.html:154
-msgid "Line Follower"
-msgstr "Çizgi İzleyen"
-
-#: templates/base.html:155
-msgid "Basketball"
-msgstr "Basketbol"
-
-#: templates/base.html:156
-msgid "Micro Sumo"
-msgstr "Mikro Sumo"
-
-#: templates/base.html:157
-msgid "Fire Fighter"
-msgstr "Yangın Söndüren"
-
-#: templates/base.html:158
-msgid "Stair Climbing"
-msgstr "Merdiven Çıkan"
-
-#: templates/base.html:159
-msgid "Maze"
-msgstr "Labirent"
-
-#: templates/base.html:160
-msgid "Color Selecting"
-msgstr "Renk Seçen"
-
-#: templates/base.html:161
-msgid "Self Balancing"
-msgstr "Kendini Dengeleyen"
-
-#: templates/base.html:162
-msgid "Scenario"
-msgstr "Senaryo"
-
-#: templates/base.html:163
-msgid "Innovative"
-msgstr "Serbest"
-
-#: templates/base.html:190
+#: templates/base.html:146
 msgid "IT Department"
 msgstr "Bilişim Ekibi"
 
-#: templates/category_detail.html:13
+#: templates/category_detail.html:14
 msgid "To download category rules"
 msgstr "Kategori kurallarını indirmek için"
 
-#: templates/category_detail.html:13
+#: templates/category_detail.html:14
 msgid "click here."
 msgstr "buraya tıklayınız."
 
-#: templates/category_detail.html:18
+#: templates/category_detail.html:19
 msgid "Category Media"
-msgstr "Kategori Medya"
+msgstr "Kategori Medyası"
 
-#: templates/category_detail.html:21
+#: templates/category_detail.html:22
 msgid "Category Gallery"
-msgstr "Kategori Galeri"
+msgstr "Kategori Galerisi"
 
-#: templates/homepage.html:5
+#: templates/category_detail.html:30 templates/homepage.html.py:121
+msgid "Registered Number Of Robots per Category"
+msgstr "Kategoriye Göre Kayıtlı Robot Sayısı"
+
+#: templates/category_detail.html:35 templates/homepage.html.py:126
+msgid "Line Follower"
+msgstr "Çizgi İzleyen"
+
+#: templates/category_detail.html:36 templates/homepage.html.py:127
+msgid "Basketball"
+msgstr "Basketbol"
+
+#: templates/category_detail.html:37 templates/homepage.html.py:128
+msgid "Micro Sumo"
+msgstr "Mikro Sumo"
+
+#: templates/category_detail.html:38 templates/homepage.html.py:129
+msgid "Fire Fighter"
+msgstr "Yangın Söndüren"
+
+#: templates/category_detail.html:39 templates/homepage.html.py:130
+msgid "Stair Climbing"
+msgstr "Merdiven Çıkan"
+
+#: templates/category_detail.html:40 templates/homepage.html.py:131
+msgid "Maze"
+msgstr "Labirent"
+
+#: templates/category_detail.html:41 templates/homepage.html.py:132
+msgid "Color Selecting"
+msgstr "Renk Seçen"
+
+#: templates/category_detail.html:42 templates/homepage.html.py:133
+msgid "Self Balancing"
+msgstr "Kendini Dengeleyen"
+
+#: templates/category_detail.html:43 templates/homepage.html.py:134
+msgid "Scenario"
+msgstr "Senaryo"
+
+#: templates/category_detail.html:44 templates/homepage.html.py:135
+msgid "Innovative"
+msgstr "Serbest"
+
+#: templates/homepage.html:6
 msgid "News and Announcements"
-msgstr "Haberler ve Duyurularımız"
+msgstr "Haberler ve Duyurular"
 
-#: templates/homepage.html:18
-msgid "Hot!!"
-msgstr "Sıcak!!"
-
-#: templates/homepage.html:25
-msgid "[Continue]"
-msgstr "[Devamı]"
-
-#: templates/homepage.html:33
+#: templates/homepage.html:20
 msgid "Previous Messages"
 msgstr "Önceki Mesajlar"
 
-#: templates/homepage.html:36
+#: templates/homepage.html:23
 msgid "Next Messages"
 msgstr "Sonraki Mesajlar"
 
-#: templates/homepage.html:43
+#: templates/homepage.html:46
+msgid "Hot!!"
+msgstr "Sıcak!"
+
+#: templates/homepage.html:55
+msgid "[Continue]"
+msgstr "[Devamı]"
+
+#: templates/homepage.html:104
 msgid "Istanbul Technical University Robot Olympics"
-msgstr "İstanbul Teknik Üniversitesi Robot Olimpiyatları"
+msgstr "Istanbul Teknik Üniversitesi Robot Olimpiyatları"
 
-#: templates/homepage.html:46
+#: templates/homepage.html:107
 msgid "Date"
-msgstr "Tarih"
+msgstr "Tarihi"
 
-#: templates/homepage.html:46
+#: templates/homepage.html:107
 msgid "April"
 msgstr "Nisan"
 
-#: templates/homepage.html:48
+#: templates/homepage.html:109
 msgid "Place"
-msgstr "Yer"
+msgstr "Yeri"
 
-#: templates/homepage.html:48
+#: templates/homepage.html:109
 msgid "ITU Süleyman Demirel Culture Center"
-msgstr "İTÜ Süleyman Demirel Kültür Merkezi"
+msgstr "ITU Süleyman Demirel Kültür Merkezi"
 
-#: templates/homepage.html:51
+#: templates/homepage.html:112
 msgid "Trailer"
 msgstr "Tanıtım Filmi"

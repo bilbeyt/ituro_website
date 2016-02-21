@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="ITU Robot Olympics">
         <meta name="keywords" content="ITU,robot,olympics,line_follower,SDKM,OTOKON,ITURO">
-        <meta name="copyright" content="ITURO website is made by OTOKON IT Department 2016"
+        <meta name="copyright" content="ITURO website is made by OTOKON IT Department 2016">
         <meta name="robots" content="index,follow">
         <title>{% trans "ITU Robot Olympics" %}</title>
         <link rel="icon" href="{% static "img/ituro.ico" %}">
@@ -23,8 +23,8 @@
         <script type='text/javascript' src='{% static "unitegallery/js/jquery-11.0.min.js" %}'></script>
         <script type='text/javascript' src='{% static "unitegallery/js/unitegallery.min.js" %}'></script>
         <script type='text/javascript' src='{% static "unitegallery/themes/compact/ug-theme-compact.js" %}'></script>
-        <script src="{% static "js/ie-emulation-modes-warning.js" %}"></script>
         {% endcompress %}
+
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -160,6 +160,7 @@
                 </div>
             </footer>
             {% compress js %}
+            <script src="{% static "js/ie-emulation-modes-warning.js" %}"></script>
             <script src="{% static "js/change_language.js" %}"></script>
             <script src="{% static "js/bootstrap.min.js" %}"></script>
             <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
