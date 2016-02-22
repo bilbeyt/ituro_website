@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-21 07:10+0000\n"
+"POT-Creation-Date: 2016-02-21 20:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,20 +60,20 @@ msgstr "haberler/(?P<slug>[-_\\w]+)/$"
 
 #: templates/404.html:6
 msgid "Sorry"
-msgstr "Uzgünüz"
+msgstr "Üzgünüz"
 
 #: templates/404.html:7
 msgid "Page not found."
-msgstr "Sayfa bulunamadı."
+msgstr "Böyle bir sayfa bulunmamaktadır."
 
 #: templates/404.html:9
 msgid "Click here"
-msgstr "Buraya tıklayınız"
+msgstr "Buraya"
 
 #: templates/404.html:9
 msgid " to back to homepage or you can watch this page as long as you want."
 msgstr ""
-" ana sayfaya dönmek için veya istediğiniz sürece bu sayfaya bakabilirsiniz."
+" tıklayarak anasayfaya dönebilir veya istediğiniz bir süre boyunca bu sayfayı izlemeye devam edebilirsiniz."
 
 #: templates/base.html:14
 msgid "ITU Robot Olympics"
@@ -85,7 +85,7 @@ msgstr "Hakkımızda"
 
 #: templates/base.html:62
 msgid "Categories"
-msgstr "Kategoriler"
+msgstr "Yarışmalar"
 
 #: templates/base.html:78
 msgid "Sponsorship"
@@ -117,7 +117,7 @@ msgstr "buraya tıklayınız."
 
 #: templates/category_detail.html:19
 msgid "Category Media"
-msgstr "Kategori Medyası"
+msgstr "Kategori Medya"
 
 #: templates/category_detail.html:22
 msgid "Category Gallery"
@@ -125,7 +125,7 @@ msgstr "Kategori Galerisi"
 
 #: templates/category_detail.html:30 templates/homepage.html.py:121
 msgid "Registered Number Of Robots per Category"
-msgstr "Kategoriye Göre Kayıtlı Robot Sayısı"
+msgstr "Kategorilere Göre Kayıtlı Robot Sayısı"
 
 #: templates/category_detail.html:35 templates/homepage.html.py:126
 msgid "Line Follower"
@@ -173,11 +173,11 @@ msgstr "Haberler ve Duyurular"
 
 #: templates/homepage.html:20
 msgid "Previous Messages"
-msgstr "Önceki Mesajlar"
+msgstr "Önceki Sayfa"
 
 #: templates/homepage.html:23
 msgid "Next Messages"
-msgstr "Sonraki Mesajlar"
+msgstr "Sonraki Sayfa"
 
 #: templates/homepage.html:46
 msgid "Hot!!"
@@ -189,11 +189,11 @@ msgstr "[Devamı]"
 
 #: templates/homepage.html:104
 msgid "Istanbul Technical University Robot Olympics"
-msgstr "Istanbul Teknik Üniversitesi Robot Olimpiyatları"
+msgstr "İstanbul Teknik Üniversitesi Robot Olimpiyatları"
 
 #: templates/homepage.html:107
 msgid "Date"
-msgstr "Tarihi"
+msgstr "Tarih"
 
 #: templates/homepage.html:107
 msgid "April"
@@ -201,11 +201,11 @@ msgstr "Nisan"
 
 #: templates/homepage.html:109
 msgid "Place"
-msgstr "Yeri"
+msgstr "Yer"
 
 #: templates/homepage.html:109
 msgid "ITU Süleyman Demirel Culture Center"
-msgstr "ITU Süleyman Demirel Kültür Merkezi"
+msgstr "İTU Süleyman Demirel Kültür Merkezi"
 
 #: templates/homepage.html:112
 msgid "Trailer"

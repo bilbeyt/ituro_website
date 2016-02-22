@@ -51,8 +51,8 @@
             else if (types[i] == "info"){
               type = "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
             }
-            second_link = "<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-            media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"&nbsp;{% trans '[Continue]' %}</a>");
+            second_link = "&nbsp;<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+            media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
             message = first_link.concat(image,media_body,"</div></li><hr>");
 
           jQuery("#messages").append(message);
