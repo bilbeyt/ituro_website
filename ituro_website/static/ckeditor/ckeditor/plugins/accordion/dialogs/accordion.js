@@ -1,3 +1,9 @@
+var a=0;
+function increment(b){
+  b = b+1;
+  a = b;
+}
+
 CKEDITOR.dialog.add( 'accordionDialog', function ( editor ) {
     return {
         title: 'Configuração do Accordion',
@@ -18,18 +24,18 @@ CKEDITOR.dialog.add( 'accordionDialog', function ( editor ) {
             }
         ],
         onOk: function() {
+            increment(a);
             var dialog = this;
             var sections = parseInt(dialog.getValueOf('tab-basic','number')); //Número de seções que serão criadas
-
             var section =   "<div class='panel panel-default'> \
                               <div class='panel-heading'> \
                                 <h4 class='panel-title'> \
-                                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse0'> \
+                                  <a data-toggle='collapse' data-parent='#accordion' href='#a1c0'> \
                                     Collapsible Group Item \
                                   </a> \
                                 </h4> \
                               </div> \
-                              <div id='collapse0' class='panel-collapse collapse'> \
+                              <div id='a1c0' class='panel-collapse collapse'> \
                                 <div class='panel-body'> \
                                   Content \
                                 </div> \
@@ -38,11 +44,16 @@ CKEDITOR.dialog.add( 'accordionDialog', function ( editor ) {
             intern = ""
             for (i=0;i<sections;i++){
 
-                old_id_href = '#collapse'.concat(i)
-                new_id_href = '#collapse'.concat(i+1);
-                old_id = "collapse".concat(i);
-                new_id = "collapse".concat(i+1);
-
+                if(i==0){
+                  old_id = "a1c0";
+                  old_id_href = "#a1c0";
+                }
+                else{
+                  old_id = "".concat("a",a,"c",i)
+                  old_id_href = "".concat("#a",a,"c",i);
+                }
+                new_id = "".concat("a",a,"c",i+1);
+                new_id_href = "".concat("#a",a,"c",i+1);
 
                 section = section.replace(old_id_href,new_id_href);
                 section = section.replace(old_id,new_id);
