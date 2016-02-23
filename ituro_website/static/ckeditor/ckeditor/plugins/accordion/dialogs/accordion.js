@@ -1,7 +1,30 @@
-var a=0;
+var a;
+
 function increment(b){
   b = b+1;
   a = b;
+}
+function get_element(){
+  var editor_data = CKEDITOR.instances['id_content'].getData();
+  var el = document.createElement("html");
+  el.innerHTML = editor_data;
+  var div_arr = el.getElementsByTagName("div")
+  var array = [];
+  for(i=0;i<div_arr.length;i++){
+
+    if(div_arr[i].className == "counter_id"){
+      array.push(parseInt(div_arr[i].innerHTML));
+    }
+  }
+
+  if(array.length<1){
+    var number =0;
+  }
+  else{
+    var number = Math.max.apply(null,array);
+  }
+
+  return number
 }
 
 CKEDITOR.dialog.add( 'accordionDialog', function ( editor ) {
@@ -24,6 +47,7 @@ CKEDITOR.dialog.add( 'accordionDialog', function ( editor ) {
             }
         ],
         onOk: function() {
+            a = get_element()
             increment(a);
             var dialog = this;
             var sections = parseInt(dialog.getValueOf('tab-basic','number')); //Número de seções que serão criadas
@@ -42,26 +66,29 @@ CKEDITOR.dialog.add( 'accordionDialog', function ( editor ) {
                               </div> \
                             </div> "
             intern = ""
-            for (i=0;i<sections;i++){
+            counter_html = "<div class='counter_id' style='display:none;'>".concat(a,"</div>");
 
-                if(i==0){
-                  old_id = "a1c0";
-                  old_id_href = "#a1c0";
-                }
-                else{
-                  old_id = "".concat("a",a,"c",i)
-                  old_id_href = "".concat("#a",a,"c",i);
-                }
-                new_id = "".concat("a",a,"c",i+1);
-                new_id_href = "".concat("#a",a,"c",i+1);
 
-                section = section.replace(old_id_href,new_id_href);
-                section = section.replace(old_id,new_id);
+              for (i=0;i<sections;i++){
 
-                intern = intern + section
-            }
+                  if(i==0){
+                    old_id = "a1c0";
+                    old_id_href = "#a1c0";
+                  }
+                  else{
+                    old_id = "".concat("a",a,"c",i)
+                    old_id_href = "".concat("#a",a,"c",i);
+                  }
+                  new_id = "".concat("a",a,"c",i+1);
+                  new_id_href = "".concat("#a",a,"c",i+1);
 
-            editor.insertHtml('<div class="panel-group" id="accordion">'+ intern +'</div>');
+                  section = section.replace(old_id_href,new_id_href);
+                  section = section.replace(old_id,new_id);
+
+                  intern = intern + section
+              }
+
+              editor.insertHtml('<div class="panel-group" id="accordion">'+ intern + counter_html +'</div>');
 
         }
     };
