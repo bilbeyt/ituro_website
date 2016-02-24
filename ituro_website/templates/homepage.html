@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n compress %}
+{% load i18n compress static %}
 {% block content %}
 <div class="row">
   <div class="col-md-8">
@@ -24,79 +24,84 @@
           </li>
       </ul>
       {% compress js %}
-      <script>
-      function print(bottom, top){
-        var titles = [];
-        var slugs = [];
-        var types = [];
-        var urls = [];
-        var short_descriptions = [];
-        {% for news in news_list %}
-        titles.push('{{news.title}}');
-        slugs.push('{{news.slug}}');
-        types.push('{{news.types}}');
-        urls.push('{{news.img.img.url}}');
-        short_descriptions.push('{{news.short_description}}');
-        {% endfor %}
-          for(i=bottom;i<=top;i++){
-            if (titles[i] !== undefined && slugs[i] !==undefined && types[i] !== undefined && urls[i] !== undefined && short_descriptions[i] !== undefined){
-            first_link = "<li class='media'><a class='pull-left' href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-            image = "<img class='media-object' src='0' style='margin-top: 15px' width='60'></a>".replace(0,urls[i]);
-            if (types[i] == "danger"){
-              type = "<span class='label label-danger' style='float: right;'>{% trans 'Hot!!' %}</span>";
+      <script type="text/javascript">
+        jQuery(document).ready(function(){
+          jQuery.print = function(bottom,top){
+            var titles = [];
+            var slugs = [];
+            var types = [];
+            var urls = [];
+            var short_descriptions = [];
+            {% for news in news_list %}
+            titles.push('{{news.title}}');
+            slugs.push('{{news.slug}}');
+            types.push('{{news.types}}');
+            urls.push('{{news.img.img.url}}');
+            short_descriptions.push('{{news.short_description}}');
+            {% endfor %}
+            for(i=bottom;i<=top;i++){
+              if (titles[i] !== undefined && slugs[i] !==undefined && types[i] !== undefined && urls[i] !== undefined && short_descriptions[i] !== undefined){
+                  first_link = "<li class='media'><a class='pull-left' href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+                  image = "<img class='media-object' src='0' style='margin-top: 15px' width='60'></a>".replace(0,urls[i]);
+                  if (types[i] == "danger"){
+                    type = "<span class='label label-danger' style='float: right;'>{% trans 'Hot!!' %}</span>";
+                  }
+                  else if (types[i] == "primary"){
+                    type = "<span class='label label-primary' style='float: right;'>{% trans 'Important' %}</span>";
+                  }
+                  else if (types[i] == "info"){
+                    type = "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
+                  }
+                second_link = "&nbsp;<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
+                media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
+                message = first_link.concat(image,media_body,"</div></li><hr>");
+                jQuery("#messages").append(message);
+              }
             }
-            else if (types[i] == "primary"){
-              type = "<span class='label label-primary' style='float: right;'>{% trans 'Important' %}</span>";
-            }
-            else if (types[i] == "info"){
-              type = "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
-            }
-            second_link = "&nbsp;<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-            media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
-            message = first_link.concat(image,media_body,"</div></li><hr>");
+          }
+          jQuery.check_buttons = function(bottom, top, length){
+            if(bottom<=0){
+              jQuery("#news_down").hide();
 
-          jQuery("#messages").append(message);
-        }
-        }
-      }
-      function check_buttons(bottom,top, length){
-        if(bottom<=0){
-          jQuery("#news_down").hide();
-        }
-        else{
-          jQuery("#news_down").show();
-        }
-        if(top=>length){
-          jQuery("#news_up").hide();
-        }
-        else{
-          jQuery("#news_up").show();
-        }
-      }
-            jQuery(document).ready(function(){
-              var length = {{news_list|length}}
-              var bottom = 0;
-              var top = 3;
-              check_buttons(bottom,top,length);
-              print(bottom,top);
+            }
+            else{
+              jQuery("#news_down").show();
 
-              jQuery("#news_up").click(function(){
-                bottom = bottom +4;
-                top = top + 4;
-                jQuery("#messages").empty();
-                check_buttons(bottom,top,length);
-                print(bottom,top);
-              });
-              jQuery("#news_down").click(function(){
-                bottom = bottom-4;
-                top = top-4;
-                jQuery("#messages").empty();
-                check_buttons(bottom,top,length);
-                print(bottom,top);
-              });
-            });
+            }
+            if(length > top+1){
+              jQuery("#news_up").show();
+
+            }
+            else{
+              jQuery("#news_up").hide();
+
+            }
+          }
+          var length = {{news_list|length}}
+          var bottom = 0;
+          var top = 3;
+
+          jQuery.check_buttons(bottom,top,length);
+          jQuery.print(bottom,top);
+          jQuery("#news_up").click(function(){
+            bottom = bottom +4;
+            top = top + 4;
+            jQuery("#messages").empty();
+            jQuery.check_buttons(bottom,top,length);
+            jQuery.print(bottom,top);
+          });
+          jQuery("#news_down").click(function(){
+            bottom = bottom-4;
+            top = top-4;
+            jQuery("#messages").empty();
+            jQuery.check_buttons(bottom,top,length);
+            jQuery.print(bottom,top);
+          });
+        });
+
       </script>
       {% endcompress %}
+
   </div>
   <div class="col-md-4">
       <div class="panel panel-primary">

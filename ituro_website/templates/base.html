@@ -20,11 +20,8 @@
         <link href="{% static "font-awesome-4.5.0/css/font-awesome.css" %}" rel="stylesheet">
         {% endcompress %}
         {% compress js %}
-        <script type='text/javascript' src='{% static "unitegallery/js/jquery-11.0.min.js" %}'></script>
-        <script type='text/javascript' src='{% static "unitegallery/js/unitegallery.min.js" %}'></script>
-        <script type='text/javascript' src='{% static "unitegallery/themes/compact/ug-theme-compact.js" %}'></script>
+        <script type='text/javascript' src='{% static "js/jquery.min.js" %}'></script>
         {% endcompress %}
-
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -159,11 +156,10 @@
                     </div>
                 </div>
             </footer>
-            {% compress js %}
             <script src="{% static "js/ie-emulation-modes-warning.js" %}"></script>
             <script src="{% static "js/change_language.js" %}"></script>
             <script src="{% static "js/bootstrap.min.js" %}"></script>
             <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
-            {% endcompress %}
+
         </body>
     </html>

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% load static i18n compress %}
+{% load static i18n compress static%}
 {% block content %}
+
   <h3 class="text-center"><b>{% trans "Gallery" %} | {{ object.title }}</b></h3>
   <hr>
   <div id="gallery" style="margin:0px auto; display:none;">
@@ -13,6 +14,8 @@
   </div>
   <div class="text-center" style="float: center;">
     {% compress js %}
+    <script type='text/javascript' src='{% static "unitegallery/js/unitegallery.min.js" %}'></script>
+    <script type='text/javascript' src='{% static "unitegallery/themes/compact/ug-theme-compact.js" %}'></script>
       <script type="text/javascript">
       jQuery(document).ready(function(){
           jQuery("#gallery").unitegallery({
