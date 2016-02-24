@@ -77,7 +77,7 @@ msgstr ""
 
 #: templates/base.html:14
 msgid "ITU Robot Olympics"
-msgstr "İTU Robot Olimpiyatları"
+msgstr "İTÜ Robot Olimpiyatları"
 
 #: templates/base.html:46
 msgid "About Us"
