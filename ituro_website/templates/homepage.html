@@ -17,10 +17,10 @@
 
       <ul class="pager" style="">
           <li>
-              <a id="news_down" href="#">{% trans "Previous Messages" %}</a>
+              <a id="news_down" href="#"><span aria-hidden="true">&larr;</span>{% trans "Previous Messages" %}</a>
           </li>
           <li>
-              <a id="news_up" href="#">{% trans "Next Messages" %}</a>
+              <a id="news_up" href="#">{% trans "Next Messages" %}<span aria-hidden="true">&rarr;</span></a>
           </li>
       </ul>
       {% compress js %}
@@ -42,7 +42,7 @@
             for(i=bottom;i<=top;i++){
               if (titles[i] !== undefined && slugs[i] !==undefined && types[i] !== undefined && urls[i] !== undefined && short_descriptions[i] !== undefined){
                   first_link = "<li class='media'><a class='pull-left' href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-                  image = "<img class='media-object' src='0' style='margin-top: 15px' width='60'></a>".replace(0,urls[i]);
+                  image = "<img class='media-object' src='0' style='margin-top: 0px' width='60'></a>".replace(0,urls[i]);
                   if (types[i] == "danger"){
                     type = "<span class='label label-danger' style='float: right;'>{% trans 'Hot!!' %}</span>";
                   }
