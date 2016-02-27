@@ -109,12 +109,12 @@ msgid "IT Department"
 msgstr "Bilişim Ekibi"
 
 #: templates/category_detail.html:14
-msgid "To download category rules"
-msgstr "Kategori kurallarını indirmek için"
+msgid "To download category rules "
+msgstr "Kategori kurallarını indirmek için "
 
 #: templates/category_detail.html:14
 msgid "click here."
-msgstr " buraya tıklayınız."
+msgstr "buraya tıklayınız."
 
 #: templates/category_detail.html:19
 msgid "Category Media"
