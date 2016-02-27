@@ -106,7 +106,7 @@ msgid "IT Department"
 msgstr ""
 
 #: templates/category_detail.html:14
-msgid "To download category rules"
+msgid "To download category rules "
 msgstr ""
 
 #: templates/category_detail.html:14
