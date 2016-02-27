@@ -61,8 +61,8 @@ class Photo(models.Model):
 @receiver(pre_save,sender=Photo)
 def photo_thumbnail_handler(sender,instance,*args,**kwargs):
     image = Img.open(StringIO.StringIO(instance.img.read()))
-    if image.format == 'tif':
-        image = image.convert("RGB")    
+    if image.mode == 'CMYK':
+        image = image.convert("RGB")
     image.thumbnail((100,100), Img.ANTIALIAS)
     output = StringIO.StringIO()
     image.save(output, format='PNG',optimize=True)
