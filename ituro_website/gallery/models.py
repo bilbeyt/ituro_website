@@ -73,11 +73,7 @@ def photo_resizing(sender,instance,*args,**kwargs):
 def photo_thumbnail_handler(sender,instance,*args,**kwargs):
     image = Img.open(StringIO.StringIO(instance.img.read()))
     if image.mode == 'CMYK':
-<<<<<<< HEAD
         image = image.convert("RGB")    
-=======
-        image = image.convert("RGB")
->>>>>>> c6c7714734eb447604aa50063a250d23070ea8c1
     image.thumbnail((100,100), Img.ANTIALIAS)
     output = StringIO.StringIO()
     image.save(output, format='PNG',optimize=True)
