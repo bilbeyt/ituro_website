@@ -59,6 +59,17 @@ class Photo(models.Model):
 
 
 @receiver(pre_save,sender=Photo)
+def photo_resizing(sender,instance,*args,**kwargs):
+    image = Img.open(StringIO.StringIO(instance.img.read()))
+    if image.mode == 'CMYK':
+        image = image.convert("RGB")
+    image.thumbnail((1080,1080), Img.ANTIALIAS)
+    output = StringIO.StringIO()
+    image.save(output, format='PNG',optimize=True)
+    output.seek(0)
+    instance.img= InMemoryUploadedFile(output,'ImageField', "%s.png" %instance.img.name.split(".")[0], 'image/png', output.len, None)
+
+@receiver(pre_save,sender=Photo)
 def photo_thumbnail_handler(sender,instance,*args,**kwargs):
     image = Img.open(StringIO.StringIO(instance.img.read()))
     if image.mode == 'CMYK':
