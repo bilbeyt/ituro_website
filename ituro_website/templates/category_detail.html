@@ -18,7 +18,7 @@
     <div class="col-md-4 text-center">
         <h3 class="text-left"><b>{% trans "Category Media" %}</b></h3>
         <hr>
-        <p><img width="360px" src="{{ object.gallery.photo_set.all.0.img.url }}"></p>
+        <p><img width="100%" src="{{ object.gallery.photo_set.all.0.img.url }}"></p>
         <p><button class="btn btn-primary btn-sm"><a href="{% url "gallery:gallery_detail" object.gallery.slug %}" style="color: white">{% trans "Category Gallery" %}</a></button></p>
         <hr>
         <div class="embed-responsive embed-responsive-16by9">
