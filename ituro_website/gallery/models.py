@@ -45,40 +45,46 @@ class Photo(models.Model):
     title = models.CharField(max_length=100)
     uid = models.PositiveSmallIntegerField()
     gallery = models.ForeignKey(Gallery)
-    img = models.ImageField(upload_to=get_image_upload_path)
-    thumbnail = models.ImageField(upload_to=get_thumbnail_upload_path)
+    img_upload = models.ImageField(upload_to=get_image_upload_path,blank=True,null=True)
+    img_select = models.ForeignKey('self', blank=True, null=True)
+    thumbnail = models.ImageField(upload_to=get_thumbnail_upload_path,blank=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.title
 
     def preview(self):
-        return u'<img src="%s" width="80" height="80"/>' % (self.img.url)
+        if self.img_upload:
+            return u'<img src="%s" width="80" height="80"/>' % (self.img_upload.url)
+        else:
+            return u'<img src="%s" width="80" height="80"/>' % (self.img_select.img_upload.url)
     preview.allow_tags = True
     preview.short_description = "Photo"
 
 
 @receiver(pre_save,sender=Photo)
 def photo_resizing(sender,instance,*args,**kwargs):
-    image = Img.open(StringIO.StringIO(instance.img.read()))
-    if image.mode == 'CMYK':
-        image = image.convert("RGB")
-    image.thumbnail((1080,1080), Img.ANTIALIAS)
-    output = StringIO.StringIO()
-    image.save(output, format='PNG',optimize=True)
-    output.seek(0)
-    instance.img= InMemoryUploadedFile(output,'ImageField', "%s.png" %instance.img.name.split(".")[0], 'image/png', output.len, None)
+    if instance.img_upload:
+        image = Img.open(StringIO.StringIO(instance.img_upload.read()))
+        if image.mode == 'CMYK':
+            image = image.convert("RGB")
+        image.thumbnail((1080,1080), Img.ANTIALIAS)
+        output = StringIO.StringIO()
+        image.save(output, format='PNG',optimize=True)
+        output.seek(0)
+        instance.img_upload= InMemoryUploadedFile(output,'ImageField', "%s.png" %instance.img_upload.name.split(".")[0], 'image/png', output.len, None)
 
 @receiver(pre_save,sender=Photo)
 def photo_thumbnail_handler(sender,instance,*args,**kwargs):
-    image = Img.open(StringIO.StringIO(instance.img.read()))
-    if image.mode == 'CMYK':
-        image = image.convert("RGB")
-    image.thumbnail((100,100), Img.ANTIALIAS)
-    output = StringIO.StringIO()
-    image.save(output, format='PNG',optimize=True)
-    output.seek(0)
-    instance.thumbnail= InMemoryUploadedFile(output,'ImageField', "%s.png" %instance.img.name.split(".")[0], 'image/png', output.len, None)
+    if instance.img_upload:
+        image = Img.open(StringIO.StringIO(instance.img_upload.read()))
+        if image.mode == 'CMYK':
+            image = image.convert("RGB")
+        image.thumbnail((100,100), Img.ANTIALIAS)
+        output = StringIO.StringIO()
+        image.save(output, format='PNG',optimize=True)
+        output.seek(0)
+        instance.thumbnail= InMemoryUploadedFile(output,'ImageField', "%s.png" %instance.img_upload.name.split(".")[0], 'image/png', output.len, None)
 
 @receiver(pre_save,sender=Gallery)
 def Gallery_slug_handler(sender,instance,*args,**kwargs):

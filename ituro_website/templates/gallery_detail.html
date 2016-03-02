@@ -6,10 +6,19 @@
   <hr>
   <div id="gallery" style="margin:0px auto; display:none;">
     {% for photo in object.photo_set.all %}
+      {% if photo.img_upload %}
       <img alt="{{photo.title}}"
            src="{{photo.thumbnail.url}}"
-           data-image="{{photo.img.url}}"
+           data-image="{{photo.img_upload.url}}"
            data-description="{{photo.title}}">
+      </img>
+      {% elif photo.img_select %}
+      <img alt="{{photo.img_select.title}}"
+           src="{{photo.img_select.thumbnail.url}}"
+           data-image="{{photo.img_select.img_upload.url}}"
+           data-description="{{photo.img_select.title}}">
+      </img>
+      {% endif %}
     {% endfor %}
   </div>
   <div class="text-center" style="float: center;">
