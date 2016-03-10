@@ -108,15 +108,15 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><button class="btn btn-primary active navbar-btn"><a target="_blank" href="http://sis.ituro.org/accounts/register/"><b>{% trans "Register" %}</b></a></button></li>
+                        <li><button class="btn btn-primary active navbar-btn"><a target="_blank" href="http://sis.ituro.org/accounts/register/" style="color:#18bc9c;"><b>{% trans "Register" %}</b></a></button></li>
                         <li><a target="_blank" href="http://sis.ituro.org/accounts/login/">{% trans "Login" %}</a></li>
                         {% for common in context.common_list %}
                         <li><a href="{% url "post:common_detail" common.slug %}">{{ common.title }}</a></li>
                         {% endfor %}
                         {% if language == 'en' %}
-                        <li><button id="language-button" class="btn btn-link navbar-btn"><a href=""><b>Türkçe</b><span class="sr-only">(current)</span></a></button></li>
+                        <li><button id="language-button" class="btn btn-link navbar-btn"><a href="" style="color:#18bc9c;"><b>Türkçe</b><span class="sr-only">(current)</span></a></button></li>
                         {% elif language == "tr" %}
-                        <li><button id="language-button" class="btn btn-link navbar-btn"><a href=""><b>English</b><span class="sr-only">(current)</span></a></button></li>
+                        <li><button id="language-button" class="btn btn-link navbar-btn"><a href="" style="color:#18bc9c;"><b>English</b><span class="sr-only">(current)</span></a></button></li>
                         {% endif %}
                     </ul>
                     </div><!--/.nav-collapse -->
