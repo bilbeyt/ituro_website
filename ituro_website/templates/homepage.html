@@ -32,7 +32,7 @@
             var types = [];
             var urls = [];
             var short_descriptions = [];
-            {% for news in news_list %}
+            {% for news in news_list reversed %}
             titles.push('{{news.title}}');
             slugs.push('{{news.slug}}');
             types.push('{{news.types}}');
@@ -53,7 +53,7 @@
                     type = "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
                   }
                 second_link = "&nbsp;<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-                media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"{% trans '[Continue]' %}</a>");
+                media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"<i>{% trans '[Continue]' %}</i></a>");
                 message = first_link.concat(image,media_body,"</div></li><hr>");
                 jQuery("#messages").append(message);
               }
@@ -142,16 +142,16 @@
             </thead>
             <tbody>
                 <tr class="active">
-                    <td class="text-center">312</td>
-                    <td>32</td>
-                    <td>16</td>
-                    <td>22</td>
-                    <td>64</td>
-                    <td>19</td>
-                    <td>5</td>
-                    <td>123</td>
-                    <td>66</td>
-                    <td>42</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
                 </tr>
             </tbody>
         </table>
