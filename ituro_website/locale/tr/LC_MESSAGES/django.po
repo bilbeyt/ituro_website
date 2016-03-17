@@ -206,7 +206,7 @@ msgstr "Yer"
 
 #: templates/homepage.html:114
 msgid "ITU Süleyman Demirel Culture Center"
-msgstr "İTU Süleyman Demirel Kültür Merkezi"
+msgstr "İTÜ Süleyman Demirel Kültür Merkezi"
 
 #: templates/homepage.html:117
 msgid "Trailer"
