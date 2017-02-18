@@ -64,3 +64,6 @@ target/
 #ituro_website
 ituro_website/db.sqlite3
 public/
+ituro_website/media
+ituro_website/post/templatetags/robot_count.py
+ituro_website/db.sqlite3BACKUP
