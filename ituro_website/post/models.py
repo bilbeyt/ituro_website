@@ -66,7 +66,7 @@ class CategoryEntry(models.Model):
     document = models.FileField(upload_to=get_upload_path)
     gallery = models.ForeignKey(Gallery)
     url = models.URLField()
-    path_model = models.TextField(null=True)
+    path_model = models.TextField(null=True, blank=True)
     old_slug = models.SlugField(max_length=100)
     slug = models.SlugField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
