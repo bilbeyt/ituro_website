@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 19:19+0300\n"
+"POT-Creation-Date: 2017-03-01 17:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,38 +135,42 @@ msgid "Line Follower"
 msgstr ""
 
 #: templates/category_detail.html:43 templates/homepage.html.py:133
-msgid "Basketball"
+msgid "Line Follower Junior"
 msgstr ""
 
 #: templates/category_detail.html:44 templates/homepage.html.py:134
-msgid "Micro Sumo"
+msgid "Basketball"
 msgstr ""
 
 #: templates/category_detail.html:45 templates/homepage.html.py:135
-msgid "Fire Fighter"
+msgid "Micro Sumo"
 msgstr ""
 
 #: templates/category_detail.html:46 templates/homepage.html.py:136
-msgid "Stair Climbing"
+msgid "Construction"
 msgstr ""
 
 #: templates/category_detail.html:47 templates/homepage.html.py:137
-msgid "Maze"
+msgid "Stair Climbing"
 msgstr ""
 
 #: templates/category_detail.html:48 templates/homepage.html.py:138
-msgid "Color Selecting"
+msgid "Maze"
 msgstr ""
 
 #: templates/category_detail.html:49 templates/homepage.html.py:139
-msgid "Self Balancing"
+msgid "Color Selecting"
 msgstr ""
 
 #: templates/category_detail.html:50 templates/homepage.html.py:140
-msgid "Scenario"
+msgid "Self Balancing"
 msgstr ""
 
 #: templates/category_detail.html:51 templates/homepage.html.py:141
+msgid "Scenario"
+msgstr ""
+
+#: templates/category_detail.html:52 templates/homepage.html.py:142
 msgid "Innovative"
 msgstr ""
 
