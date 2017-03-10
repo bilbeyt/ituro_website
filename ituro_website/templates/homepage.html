@@ -53,7 +53,7 @@
                     type = "<span class='label label-info' style='float: right;'>{% trans 'Information' %}</span>";
                   }
                 second_link = "&nbsp;<a href='{% url 'post:news_detail' slug='0' %}'>".replace(0,slugs[i]);
-                media_body = "<div class='media-body'><h4 class='media-heading'><b>".concat(titles[i]).concat(type,"</b></h4>").concat(short_descriptions[i],second_link,"<i>{% trans '[Continue]' %}</i></a>");
+                media_body = "<div class='media-body'><h4 class='media-heading'><b><a href='{% url 'post:news_detail' slug='0' %}'>".replace(0, slugs[i]).concat(titles[i]).concat(type,"</a></b></h4>").concat(second_link, short_descriptions[i],"</a>");
                 message = first_link.concat(image,media_body,"</div></li><hr>");
                 jQuery("#messages").append(message);
               }
@@ -122,7 +122,11 @@
   </div>
 </div>
 <div class="container text-center col-md-12">
-        <hr>
+
+        <h4><strong>{% trans 'ITURO on Social Media'%}</strong></h4>
+        <div id="publing" data-key="4k0ey07voj8m" data-height-type='adaptive' data-environment="stage" data-secret="lNpmYgsDB6" style="width:100%;height:100%;margin-top:4%;"></div>
+        <script async src="https://front.publing.co/display/v1.js"></script>
+        <hr />
         {% robot_count as context %}
         <p><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
             <div class="table-responsive" style="margin-bottom: -25px">
