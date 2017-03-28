@@ -16,7 +16,11 @@
         </div>
         {% if object.path_model %}
             <div>
-                <h4 style="padding-top:50px;"><b>{% trans "Track Model" %}</b></h4>
+                 {% if object.title == "İnşaat" or object.title == "Construction" %}
+                     <h4 style="padding-top:50px;"><b>{% trans "The shape to be made" %}</b></h4><p>&nbsp</p>
+                 {% else %}
+                     <p>&nbsp</p><h4 stlye="padding-top:50px;"><b>{% trans "Track Model" %}</b></h4><p>&nbsp</p>
+                 {% endif %}
                 {{ object.path_model|safe }}
             </div>
         {% endif %}

@@ -44,7 +44,7 @@ class Photo(models.Model):
     language_code = models.CharField(max_length=2,choices=settings.LANGUAGES)
     title = models.CharField(max_length=100)
     uid = models.PositiveSmallIntegerField()
-    gallery = models.ForeignKey(Gallery)
+    gallery = models.ForeignKey(Gallery, null=True, blank=True)
     img_upload = models.ImageField(upload_to=get_image_upload_path,blank=True,null=True)
     img_select = models.ForeignKey('self', blank=True, null=True)
     thumbnail = models.ImageField(upload_to=get_thumbnail_upload_path,blank=True,null=True)
