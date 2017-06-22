@@ -109,7 +109,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><button class="btn btn-primary active navbar-btn"><a target="_blank" href="http://sis.ituro.org/accounts/register/" style="color:#18bc9c;"><b>{% trans "Register" %}</b></a></button></li>
-                        <li><a target="_blank" href="http://sis.ituro.org/accounts/login/">{% trans "Login" %}</a></li>
+                        <li><a target="_blank" href="http://sis.ituro.org/">{% trans "Login" %}</a></li>
                         {% for common in context.common_list %}
                         <li><a href="{% url "post:common_detail" common.slug %}">{{ common.title }}</a></li>
                         {% endfor %}
@@ -157,10 +157,11 @@
                     </div>
                 </div>
             </footer>
+	    {% compress js %}
             <script src="{% static "js/ie-emulation-modes-warning.js" %}"></script>
             <script src="{% static "js/change_language.js" %}"></script>
             <script src="{% static "js/bootstrap.min.js" %}"></script>
             <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
-
+	    {% endcompress %}
         </body>
     </html>
