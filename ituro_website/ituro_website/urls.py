@@ -31,7 +31,7 @@ urlpatterns += i18n_patterns(
         name='django.contrib.sitemaps.views.sitemap'),
     url(_(r'^gallery/'), include("gallery.urls",namespace="gallery")),
     url(r'^', include("post.urls", namespace="post")),
-
+    url(_(r'^survey/'), include("survey.urls", namespace="survey")),
 
 )
 

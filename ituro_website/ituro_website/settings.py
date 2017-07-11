@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.redirects',
     'robots',
+    'bootstrap3',
     "compressor",
     'ckeditor',
     'gallery',
     'post',
+    'survey',
 ]
 
 SITE_ID=1
