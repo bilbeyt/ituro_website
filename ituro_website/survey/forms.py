@@ -10,6 +10,7 @@ class SurveyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(SurveyForm, self).__init__(*args, **kwargs)
         self.initial["participant"] = ""
+	self.auto_id = False
         questions = []
         for text_question in self.instance.textquestion_set.all():
             questions.append(text_question)
