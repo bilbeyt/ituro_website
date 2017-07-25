@@ -4,14 +4,14 @@ from django.template.defaultfilters import slugify
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.conf import settings
-
+from django.utils.translation import ugettext_lazy as _
 
 class Survey(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=100, blank=True, null=True)
     language = models.CharField(choices=settings.LANGUAGES, max_length=5)
     uid = models.PositiveIntegerField(blank=True, null=True)
-    participant = models.CharField(max_length=100)
+    participant = models.CharField(_("Name"), max_length=100)
     slug = models.SlugField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     is_draft = models.BooleanField(default=False)

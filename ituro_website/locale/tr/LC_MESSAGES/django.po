@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-11 22:56+0300\n"
+"POT-Creation-Date: 2017-07-25 18:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ituro_website/settings.py:69
+#: ituro_website/settings.py:70
 msgid "English"
 msgstr "İngilizce"
 
-#: ituro_website/settings.py:70
+#: ituro_website/settings.py:71
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: ituro_website/settings.py:78
+#: ituro_website/settings.py:79
 msgid "Hot!"
 msgstr "Sıcak!"
 
-#: ituro_website/settings.py:79 templates/homepage.html.py:53
+#: ituro_website/settings.py:80 templates/homepage.html.py:53
 msgid "Information"
 msgstr "Bilgi"
 
-#: ituro_website/settings.py:80 templates/homepage.html.py:50
+#: ituro_website/settings.py:81 templates/homepage.html.py:50
 msgid "Important"
 msgstr "Önemli"
 
@@ -61,6 +61,10 @@ msgstr "^sponsorluk/(?P<slug>[-_\\w]+)/$"
 #: post/urls.py:17
 msgid "^news/(?P<slug>[-_\\w]+)/$"
 msgstr "haberler/(?P<slug>[-_\\w]+)/$"
+
+#: survey/models.py:14
+msgid "Name"
+msgstr "İsim"
 
 #: templates/404.html:6
 msgid "Sorry"
