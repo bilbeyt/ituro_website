@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django import forms
 from survey.models import Survey, TextQuestion, TextAreaQuestion, ChoiceQuestion
 

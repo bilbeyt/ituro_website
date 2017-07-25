@@ -59,7 +59,7 @@ class SurveyCreateView(UpdateView):
                         choice = Choice.objects.get(answer=choice[0])
                         obj.choices.add(choice)
                     for value in val:
-                        answer = Choice.objects.get(answer=value[0])
+                        answer = Choice.objects.get(answer=value)
                         obj.answers.add(answer)
                 elif widget_type == 'Select':
                     current_choices = form[key].field.choices
