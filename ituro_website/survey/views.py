@@ -3,7 +3,8 @@ from django.shortcuts import get_object_or_404, HttpResponseRedirect
 from django.core.urlresolvers import reverse, reverse_lazy
 from survey.forms import SurveyForm
 from survey.models import Survey, TextQuestion, TextAreaQuestion, ChoiceQuestion, Choice
-
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 class SurveyCreateView(UpdateView):
     model = Survey
@@ -69,5 +70,5 @@ class SurveyCreateView(UpdateView):
                         obj.choices.add(choice)
                     answer = Choice.objects.get(answer=val)
                     obj.answers.add(answer)
-
+	    messages.success(self.request, _("Saved successfully!"))
         return super(SurveyCreateView, self).form_valid(form)

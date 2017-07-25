@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-25 18:44+0300\n"
+"POT-Creation-Date: 2017-07-25 17:31-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,10 @@ msgstr "haberler/(?P<slug>[-_\\w]+)/$"
 #: survey/models.py:14
 msgid "Name"
 msgstr "İsim"
+
+#: survey/views.py:73
+msgid "Saved successfully!"
+msgstr "Basariyla olusturuldu!"
 
 #: templates/404.html:6
 msgid "Sorry"
@@ -233,7 +237,6 @@ msgstr "Tanıtım Filmi"
 msgid "ITURO on Social Media"
 msgstr "Sosyal Medyada İTÜRO"
 
-#: templates/survey/survey_create.html:12
+#: templates/survey/survey_create.html:13
 msgid "Submit"
 msgstr "Onayla"
-
