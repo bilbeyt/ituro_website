@@ -109,7 +109,7 @@
               <h3><b>{% trans "Istanbul Technical University Robot Olympics" %}</b></h3>
           </div>
           <div class="panel-body">
-              <h4><b>{% trans "Date" %}:</b> 6 - 7 - 8 {% trans "April" %} 2017</h4>
+              <h4><b>{% trans "Date" %}:</b> 12 - 13 - 14 {% trans "April" %} 2018</h4>
           </div>
           <div class="panel-footer"><h4><b>{%trans "Place" %}: </b><a class="text-primary" href="https://www.google.com.tr/maps/place/S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi/@41.106636,29.022403,15z/data=!4m2!3m1!1s0x0:0x6445dfa6db7ef717" target="_blank">{% trans "ITU Süleyman Demirel Culture Center" %}</a></h4></div>
       </div>
@@ -128,10 +128,10 @@
         <div id="publing" data-key="4k0ey07voj8m" data-height-type='adaptive' data-environment="stage" data-secret="lNpmYgsDB6" style="width:100%;height:100%;margin-top:4%;"></div>
         <script async src="https://front.publing.co/display/v1.js"></script>
         {% endif %}
-        <hr />
+        <!--<hr />-->
         {% robot_count as context %}
-        <p><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
-            <div class="table-responsive" style="margin-bottom: -25px">
+        <p class="hidden"><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
+            <div class="hidden table-responsive" style="margin-bottom: -25px">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr class="">

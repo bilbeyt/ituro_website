@@ -57,18 +57,18 @@ class SurveyCreateView(UpdateView):
                     current_choices = form[key].field.choices
                     obj = ChoiceQuestion.objects.create(question=key, survey=survey)
                     for choice in current_choices:
-                        choice = Choice.objects.get(answer=choice[0])
+                        choice = Choice.objects.filter(answer=choice[0])[0]
                         obj.choices.add(choice)
                     for value in val:
-                        answer = Choice.objects.get(answer=value)
+                        answer = Choice.objects.filter(answer=value)[0]
                         obj.answers.add(answer)
                 elif widget_type == 'Select':
                     current_choices = form[key].field.choices
                     obj = ChoiceQuestion.objects.create(question=key, survey=survey)
                     for choice in current_choices:
-                        choice = Choice.objects.get(answer=choice[0])
+                        choice = Choice.objects.filter(answer=choice[0])[0]
                         obj.choices.add(choice)
-                    answer = Choice.objects.get(answer=val)
+                    answer = Choice.objects.filter(answer=val)[0]
                     obj.answers.add(answer)
 	    messages.success(self.request, _("Saved successfully!"))
         return super(SurveyCreateView, self).form_valid(form)
