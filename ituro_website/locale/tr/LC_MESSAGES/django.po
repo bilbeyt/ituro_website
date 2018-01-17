@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -121,11 +121,11 @@ msgstr "Giriş Yap"
 msgid "IT Department"
 msgstr "Bilişim Ekibi"
 
-#: templates/category_detail.html:15
+#: templates/category_detail.html:19
 msgid "To download category rules "
 msgstr "Kategori kurallarını indirmek için "
 
-#: templates/category_detail.html:15
+#: templates/category_detail.html:19
 msgid "click here."
 msgstr "buraya tıklayınız."
 
