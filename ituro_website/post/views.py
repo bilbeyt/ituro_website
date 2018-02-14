@@ -24,6 +24,7 @@ class HomePageDetailView(TemplateView):
         context = super(HomePageDetailView,self).get_context_data(**kwargs)
         context["homepage"] = homepage
         context["news_list"] = news_list
+	context["countdown_time"] = homepage.countdown_time.isoformat()
         return context
 
 

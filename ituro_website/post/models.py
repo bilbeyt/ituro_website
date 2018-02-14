@@ -10,6 +10,7 @@ from django.dispatch import receiver
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
 from django.utils.translation import activate
+from django.utils import timezone
 from django.contrib.redirects.models import Redirect
 from django.db import models
 from robots.models import Url
@@ -29,6 +30,7 @@ class CommonEntry(models.Model):
     is_public = models.BooleanField(default=False)
     content = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    countdown_time = models.DateTimeField(default=timezone.now)
 
     def __unicode__(self):
         return self.title
@@ -129,6 +131,7 @@ class HomePageEntry(models.Model):
     content = RichTextField(null=True,blank=True)
     url = models.URLField()
     created_at = models.DateTimeField(auto_now_add=True)
+    countdown_time = models.DateTimeField(default=timezone.now)
 
     def __unicode__(self):
         return self.title
