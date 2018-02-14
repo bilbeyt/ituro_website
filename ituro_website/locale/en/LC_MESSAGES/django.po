@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 00:46+0300\n"
+"POT-Creation-Date: 2018-02-14 19:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,51 +142,51 @@ msgstr ""
 msgid "Category Gallery"
 msgstr ""
 
-#: templates/category_detail.html:47 templates/homepage.html.py:133
+#: templates/category_detail.html:47 templates/homepage.html.py:144
 msgid "Registered Number Of Robots per Category"
 msgstr ""
 
-#: templates/category_detail.html:52 templates/homepage.html.py:138
+#: templates/category_detail.html:52 templates/homepage.html.py:149
 msgid "Line Follower"
 msgstr ""
 
-#: templates/category_detail.html:53 templates/homepage.html.py:139
+#: templates/category_detail.html:53 templates/homepage.html.py:150
 msgid "Line Follower Junior"
 msgstr ""
 
-#: templates/category_detail.html:54 templates/homepage.html.py:140
+#: templates/category_detail.html:54 templates/homepage.html.py:151
 msgid "Basketball"
 msgstr ""
 
-#: templates/category_detail.html:55 templates/homepage.html.py:141
+#: templates/category_detail.html:55 templates/homepage.html.py:152
 msgid "Micro Sumo"
 msgstr ""
 
-#: templates/category_detail.html:56 templates/homepage.html.py:142
+#: templates/category_detail.html:56 templates/homepage.html.py:153
 msgid "Construction"
 msgstr ""
 
-#: templates/category_detail.html:57 templates/homepage.html.py:143
+#: templates/category_detail.html:57 templates/homepage.html.py:154
 msgid "Stair Climbing"
 msgstr ""
 
-#: templates/category_detail.html:58 templates/homepage.html.py:144
+#: templates/category_detail.html:58 templates/homepage.html.py:155
 msgid "Maze"
 msgstr ""
 
-#: templates/category_detail.html:59 templates/homepage.html.py:145
+#: templates/category_detail.html:59 templates/homepage.html.py:156
 msgid "Color Selecting"
 msgstr ""
 
-#: templates/category_detail.html:60 templates/homepage.html.py:146
+#: templates/category_detail.html:60 templates/homepage.html.py:157
 msgid "Self Balancing"
 msgstr ""
 
-#: templates/category_detail.html:61 templates/homepage.html.py:147
+#: templates/category_detail.html:61 templates/homepage.html.py:158
 msgid "Scenario"
 msgstr ""
 
-#: templates/category_detail.html:62 templates/homepage.html.py:148
+#: templates/category_detail.html:62 templates/homepage.html.py:159
 msgid "Innovative"
 msgstr ""
 
@@ -206,31 +206,47 @@ msgstr ""
 msgid "Hot!!"
 msgstr ""
 
-#: templates/homepage.html:109
+#: templates/homepage.html:110
 msgid "Istanbul Technical University Robot Olympics"
 msgstr ""
 
-#: templates/homepage.html:112
+#: templates/homepage.html:115 templates/homepage.html.py:205
+msgid "d"
+msgstr ""
+
+#: templates/homepage.html:116 templates/homepage.html.py:206
+msgid "h"
+msgstr ""
+
+#: templates/homepage.html:117 templates/homepage.html.py:207
+msgid "m"
+msgstr ""
+
+#: templates/homepage.html:118 templates/homepage.html.py:208
+msgid "s"
+msgstr ""
+
+#: templates/homepage.html:123
 msgid "Date"
 msgstr ""
 
-#: templates/homepage.html:112
+#: templates/homepage.html:123
 msgid "April"
 msgstr ""
 
-#: templates/homepage.html:114
+#: templates/homepage.html:125
 msgid "Place"
 msgstr ""
 
-#: templates/homepage.html:114
+#: templates/homepage.html:125
 msgid "ITU Süleyman Demirel Culture Center"
 msgstr ""
 
-#: templates/homepage.html:117
+#: templates/homepage.html:128
 msgid "Trailer"
 msgstr ""
 
-#: templates/homepage.html:127
+#: templates/homepage.html:138
 msgid "ITURO on Social Media"
 msgstr ""
 
