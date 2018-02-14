@@ -103,10 +103,21 @@
       {% endcompress %}
 
   </div>
+  <link href="{% static "css/timer.css" %}" rel="stylesheet">
   <div class="col-md-4">
       <div class="panel panel-primary">
           <div class="panel-heading">
               <h3><b>{% trans "Istanbul Technical University Robot Olympics" %}</b></h3>
+          </div>
+          <div class="panel-footer" align="center">
+              <table id="countdownContainer" style="text-align: center; border-collapse: separate; border-spacing: 10px;">
+                  <tr>
+                      <th id="days" class="countdown"> 0 <br>{% trans "d" %}<th>
+                      <th id="hours" class="countdown"> 0 <br>{% trans "h" %}</th>
+                      <th id="minutes" class="countdown"> 0 <br>{% trans "m" %}</th>
+                      <th id="seconds" class="countdown"> 0 <br>{% trans "s" %}<th>
+                  </tr>
+              </table>
           </div>
           <div class="panel-body">
               <h4><b>{% trans "Date" %}:</b> 12 - 13 - 14 {% trans "April" %} 2018</h4>
@@ -167,4 +178,38 @@
 
         </div>
     </div>
+    <script>
+        function countdown(){
+          var now = new Date();
+          var eventDate = new Date('{{countdown_time}}');
+          var currentTime = now.getTime();
+          var eventTime = eventDate.getTime();
+          var remTime = eventTime - currentTime;
+
+          if(remTime <= 0){
+            document.getElementById('countdownContainer').style.display = 'none';
+            return;
+          }
+          var s = Math.floor(remTime / 1000);
+          var m = Math.floor(s / 60);
+          var h = Math.floor(m / 60);
+          var d = Math.floor(h / 24);
+          h %= 24;
+          m %= 60;
+          s %= 60;
+
+          h = (h < 10) ? "0" + h : h;
+          m = (m < 10) ? "0" + m : m;
+          s = (s < 10) ? "0" + s : s;
+
+          document.getElementById("days").textContent = d + "\r\n" + "{% trans 'd' %}";
+          document.getElementById("hours").textContent = h + "\r\n" + "{% trans 'h' %}";
+          document.getElementById("minutes").textContent = m + "\r\n" + "{% trans 'm' %}";
+          document.getElementById("seconds").textContent = s + "\r\n" + "{% trans 's' %}";
+
+          setTimeout(countdown, 1000);
+        }
+
+        countdown();
+    </script>
 {% endblock %}
