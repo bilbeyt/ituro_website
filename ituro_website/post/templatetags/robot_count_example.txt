@@ -8,13 +8,11 @@ def robot_count():
 
 	robot_counts["line_follower"] = 0
 	robot_counts["line_follower_junior"] = 0
-	robot_counts["basketball"] = 0
+	robot_counts["drone"] = 0
 	robot_counts["micro_sumo"] = 0
 	robot_counts["construction"] = 0
-	robot_counts["maze"] = 0
 	robot_counts["scenario"] = 0
 	robot_counts["innovative"] = 0
-	robot_counts["self_balancing"] = 0
 	robot_counts["color_selecting"] = 0
 
 	return robot_counts
