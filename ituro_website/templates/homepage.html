@@ -132,7 +132,7 @@
       </div>
   </div>
 </div>
-<div class="container hidden text-center col-md-12" style="margin-top:5%">
+<div class="container text-center col-md-12" style="margin-top:5%">
         {% check_ios request as check %}
         {% if not check %}
         <h4><strong>{% trans 'ITURO on Social Media'%}</strong></h4>
@@ -141,20 +141,18 @@
         {% endif %}
         <!--<hr />-->
         {% robot_count as context %}
-        <p class="hidden"><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
-            <div class="hidden table-responsive" style="margin-bottom: -25px">
+        <p><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
+        <div class="table-responsive" style="margin-bottom: -25px">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr class="">
                         <th class="col-md-1 text-center">{% trans "Line Follower" %}</th>
                         <th class="col-md-1 text-center">{% trans "Line Follower Junior" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Basketball" %}</th>
+                        <th class="col-md-1 text-center">{% trans "Drone" %}</th>
                         <th class="col-md-1 text-center">{% trans "Micro Sumo" %}</th>
                         <th class="col-md-1 text-center">{% trans "Construction" %}</th>
                         <th class="col-md-1 text-center">{% trans "Stair Climbing" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Maze" %}</th>
                         <th class="col-md-1 text-center">{% trans "Color Selecting" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Self Balancing" %}</th>
                         <th class="col-md-1 text-center">{% trans "Scenario" %}</th>
                         <th class="col-md-1 text-center">{% trans "Innovative" %}</th>
                     </tr>
@@ -163,19 +161,16 @@
                     <tr class="active">
                         <td>{{ context.line_follower }}</td>
                         <td>{{ context.line_follower_junior }}</td>
-                        <td>{{ context.basketball }}</td>
+                        <td>{{ context.drone }}</td>
                         <td>{{ context.micro_sumo }}</td>
                         <td>{{ context.construction }}</td>
                         <td>{{ context.stair_climbing }}</td>
-                        <td>{{ context.maze }}</td>
                         <td>{{ context.color_selecting }}</td>
-                        <td>{{ context.self_balancing }}</td>
                         <td>{{ context.scenario }}</td>
                         <td>{{ context.innovative }}</td>
                     </tr>
                 </tbody>
             </table>
-
         </div>
     </div>
     <script>
