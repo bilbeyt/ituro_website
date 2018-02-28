@@ -13,7 +13,6 @@ def robot_count():
 	robot_counts["construction"] = 0
 	robot_counts["scenario"] = 0
 	robot_counts["innovative"] = 0
-	robot_counts["self_balancing"] = 0
 	robot_counts["color_selecting"] = 0
 
 	return robot_counts
