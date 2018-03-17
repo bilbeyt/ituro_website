@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vt341(sudt_qaz19l^_-15328np@yu)#u=#$+g(f@k%8pomf$%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.ituro.org']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'robots',
     'bootstrap3',
-    "compressor",
     'ckeditor',
     'gallery',
     'post',
@@ -142,12 +141,7 @@ AUTH_PASSWORD_VALIDATORS = [
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-    'compressor.finders.CompressorFinder',
 )
-
-COMPRESS_ENABLED = False
-COMPRESS_OFFLINE = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

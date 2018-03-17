@@ -1,80 +1,47 @@
 ﻿{% extends "base.html" %}
-{% load i18n robot_count %}
+{% load i18n static %}
 {% block content %}
 <div class="row">
     <div class="col-md-8">
         <h3 class=""><b>{{ object.title }}</b></h3>
         <hr>
-        <!-- <h4><strong>Görev Tanımı</strong></h2>
-        <p>Bu kategoride robotlar, beyaz pist üzerine siyah veya siyah pist üzerine beyaz çizgilerin üstünde kalarak parkuru tamamlamaya çalışırlar.</p>
-        <hr>
-        <p class="text-center"><button class="btn btn-primary"><a style="color: white" href="#" target="_blank">Kategori kurallarını indirmek için tıklayınız.</a></button></p> -->
         <div>
-	    <!--
-            <object data="{{ object.document.url }}" type="application/pdf" width="100%" height="540px">
-                <p>{% trans "To download category rules " %}<a href="{{ object.document.url }}">{% trans "click here." %}</a></p>
-            </object>
-	    -->
-
-	<p>{% trans "To download category rules " %}<a href="{{ object.document.url }}" download><b>{% trans "click here." %}</b></a></p>
-
-	<iframe src="http://docs.google.com/gview?url={{ request.get_host }}/{{ object.document.url }}&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
+	        <p>{% trans "To download category rules " %}<a href="{{ object.document.url }}" download><b>{% trans "click here." %}</b></a></p>
+	        <iframe src="http://docs.google.com/gview?url={{ request.get_host }}/{{ object.document.url }}&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
         </div>
-        {% if object.path_model %}
-            <div>
-                 {% if object.title == "İnşaat" or object.title == "Construction" %}
-                     <h4 style="padding-top:50px;"><b>{% trans "The shape to be made" %}</b></h4><p>&nbsp</p>
-                 {% else %}
-                     <p>&nbsp</p><h4 stlye="padding-top:50px;"><b>{% trans "Track Model" %}</b></h4><p>&nbsp</p>
-                 {% endif %}
-                {{ object.path_model|safe }}
-            </div>
-        {% endif %}
+        {% for model in object.category3dmodel_set.all %}
+        <h3>{{ model.title }}</h3>
+        <div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/{{model.model_number}}/embed" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+            <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+                <a href="https://sketchfab.com/models/{{ model.model_number }}?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">{{ model.name }}</a>
+                by <a href="https://sketchfab.com/otokon?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">OTOKON</a>
+                on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+            </p>
+        </div>
+        {% endfor %}
     </div>
     <div class="col-md-4 text-center">
         <h3 class="text-left"><b>{% trans "Category Media" %}</b></h3>
         <hr>
-        <p><img width="100%" src="{{ object.gallery.photo_set.all.0.img_upload.url }}"></p>
+        {% if object.gallery.photo_set.all.count > 0 %}
+            {% if object.gallery.photo_set.all.0.img_upload %}
+            <p><img width="100%" src="{{ object.gallery.photo_set.all.0.img_upload.url }}"></p>
+            {% else %}
+            <p><img width="100%" src="{{ object.gallery.photo_set.all.0.img_select.img_upload.url }}"></p>
+            {% endif %}
+        {% else %}
+            <p> <img width="100%" src="{% static "img/ituro_bee.png"%}"></p>
+        {% endif %} 
+
         <p><button class="btn btn-primary btn-sm"><a href="{% url "gallery:gallery_detail" object.gallery.slug %}" style="color: white">{% trans "Category Gallery" %}</a></button></p>
         <hr>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe width="100%" src="{{ object.url }}" frameborder="0" allowfullscreen="" height="100"></iframe>
         </div>
     </div>
-    <div class="container text-center col-md-12">
+</div>
+<div class="container text-center col-md-12">
         <hr>
-	{% robot_count as context %}
-        <p><strong>{% trans "Registered Number Of Robots per Category" %}</strong></p>
-        <div class="table-responsive" style="margin-bottom: -25px">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr class="">
-                        <th class="col-md-1 text-center">{% trans "Line Follower" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Line Follower Junior" %}</th>
-			<th class="col-md-1 text-center">{% trans "Drone" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Micro Sumo" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Construction" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Stair Climbing" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Color Selecting" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Scenario" %}</th>
-                        <th class="col-md-1 text-center">{% trans "Innovative" %}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="active">
-                        <td class="text-center">{{ context.line_follower }}</td>
-			<td class="text-center">{{ context.line_follower_junior }}</td>
-                        <td class="text-center">{{ context.drone }}</td>
-                        <td class="text-center">{{ context.micro_sumo }}</td>
-                        <td class="text-center">{{ context.construction }}</td>
-                        <td class="text-center">{{ context.stair_climbing }}</td>
-                        <td class="text-center">{{ context.color_selecting }}</td>
-                        <td class="text-center">{{ context.scenario }}</td>
-                        <td class="text-center">{{ context.innovative }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+        {% include "robot_counts.html" %}
 </div>
 {% endblock %}

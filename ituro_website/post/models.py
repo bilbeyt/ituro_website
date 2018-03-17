@@ -68,7 +68,6 @@ class CategoryEntry(models.Model):
     document = models.FileField(upload_to=get_upload_path)
     gallery = models.ForeignKey(Gallery)
     url = models.URLField()
-    path_model = models.TextField(null=True, blank=True)
     old_slug = models.SlugField(max_length=100)
     slug = models.SlugField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -80,6 +79,16 @@ class CategoryEntry(models.Model):
 
     def get_absolute_url(self):
         return reverse("post:category_detail",args=(self.slug,))
+
+
+class Category3DModel(models.Model):
+    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    model_number = models.CharField(max_length=50)
+    entry = models.ForeignKey(CategoryEntry, null=True)
+
+    def __str__(self):
+        return self.title
 
 
 class AboutEntry(models.Model):

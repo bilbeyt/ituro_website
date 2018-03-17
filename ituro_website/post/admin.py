@@ -1,6 +1,11 @@
 from django.contrib import admin
 from post.models import CommonEntry, NewsEntry, CategoryEntry, HomePageEntry, \
-    AboutEntry, SponsorshipEntry
+    AboutEntry, SponsorshipEntry, Category3DModel
+
+
+class Category3DModelAdmin(admin.TabularInline):
+    model = Category3DModel
+    extra = 1
 
 
 class CommonEntryAdmin(admin.ModelAdmin):
@@ -31,6 +36,7 @@ class SponsorshipEntryAdmin(admin.ModelAdmin):
 
 
 class CategoryEntryAdmin(admin.ModelAdmin):
+    inlines = [Category3DModelAdmin]
     list_display = ["title", "old_slug","slug","language_code", "gallery", "url","order", "uid",
         "created_at"]
     list_filter = ["language_code"]
