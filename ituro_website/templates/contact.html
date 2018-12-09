@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block content %}
+<link href="{% static "css/form.css" %}" rel="stylesheet">
+<h1>{% trans "Contact Us" %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button class="contact_submit">{% trans "Submit" %}</button>
+    </div>
+</form>
+{% endblock %}
