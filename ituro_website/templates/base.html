@@ -104,7 +104,8 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a target="_blank" href="http://sis.ituro.org/accounts/register/" style="color:#18bc9c;"><b>{% trans "Register" %}</b></a></li>
-                        <li><a target="_blank" href="http://sis.ituro.org/">{% trans "Login" %}</a></li>
+                        <li><a href="{% url "post:contact" %}">{% trans "Contact Us" %}</a>
+			<li><a target="_blank" href="http://sis.ituro.org/">{% trans "Login" %}</a></li>
                         {% for common in context.common_list %}
                         <li><a href="{% url "post:common_detail" common.slug %}">{{ common.title }}</a></li>
                         {% endfor %}
