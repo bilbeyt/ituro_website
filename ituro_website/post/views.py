@@ -126,8 +126,12 @@ def contactView(request):
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
+            choice = form.cleaned_data['Teams']
             try:
-                send_mail(subject, message, from_email, ['batuortal@gmail.com', None])
+                if choice == 'Sponsorluk':
+                    send_mail(subject, message, from_email, ['kaydu16@itu.edu.tr', None])
+                else:
+                    send_mail(subject, message, from_email, ['emre.kyd11@gmail.com', None])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success/')
