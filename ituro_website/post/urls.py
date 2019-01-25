@@ -9,7 +9,7 @@ urlpatterns = [
 
     url(r'^$', HomePageDetailView.as_view(), name="homepage"),
     url(_(r'^contact_us/$'), contactView, name="contact"),
-    url(_(r'^success/$'), successView, name="success"),
+    url(_(r'^contact_us/success/$'), successView, name="success"),
     url(_(r'^about/(?P<slug>[-_\w]+)/$'), AboutDetailView.as_view(),
         name="about_detail"),
     url(_(r'^category/(?P<slug>[-_\w]+)/$'), CategoryDetailView.as_view(),

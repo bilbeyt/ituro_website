@@ -26,9 +26,15 @@ SECRET_KEY = 'vt341(sudt_qaz19l^_-15328np@yu)#u=#$+g(f@k%8pomf$%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ituro.org']
+ALLOWED_HOSTS = ['ituro.org', "www.ituro.org"]
 
-
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "emrekaydu"
+EMAIL_HOST_PASSWORD = "eszdcx845620"
+EMAIL_PORT = "587"
+EMAIL_SUBJECT_PREFIX = "[Test mail]"
 # Application definition
 
 INSTALLED_APPS = [

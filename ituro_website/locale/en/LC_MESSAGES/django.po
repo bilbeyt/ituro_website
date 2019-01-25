@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-09 21:09+0300\n"
+"POT-Creation-Date: 2018-12-09 22:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ituro_website/settings.py:78
+#: ituro_website/settings.py:75
 msgid "English"
 msgstr ""
 
-#: ituro_website/settings.py:79
+#: ituro_website/settings.py:76
 msgid "Turkish"
 msgstr ""
 
-#: ituro_website/settings.py:87
+#: ituro_website/settings.py:84
 msgid "Hot!"
 msgstr ""
 
-#: ituro_website/settings.py:88 templates/homepage.html.py:45
+#: ituro_website/settings.py:85 templates/homepage.html.py:45
 msgid "Information"
 msgstr ""
 
-#: ituro_website/settings.py:89 templates/homepage.html.py:42
+#: ituro_website/settings.py:86 templates/homepage.html.py:42
 msgid "Important"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgid "^contact_us/$"
 msgstr ""
 
 #: post/urls.py:12
-msgid "^success/$"
+msgid "^contact_us/success/$"
 msgstr ""
 
 #: post/urls.py:13
@@ -91,6 +91,10 @@ msgstr ""
 
 #: post/urls.py:20
 msgid "^news/(?P<slug>[-_\\w]+)/$"
+msgstr ""
+
+#: post/views.py:134
+msgid "success/"
 msgstr ""
 
 #: survey/models.py:14
