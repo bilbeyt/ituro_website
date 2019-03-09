@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block content %}
+{% for seminar in seminars %}
+    <div class="post">
+        <div class="date">
+            {{ seminar.published_date }}
+        </div>
+        <h1>{{ seminar.title }}</h1>
+        <p>{{ seminar.content|safe}}</p>
+    </div>
+{% endfor %}
+{% endblock %}
