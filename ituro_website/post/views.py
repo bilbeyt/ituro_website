@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail, BadHeaderError
 from django.utils.translation import get_language
+from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import activate
 from django.template.loader import get_template
 from post.models import CommonEntry
@@ -14,8 +15,9 @@ from post.models import CategoryEntry
 from post.models import HomePageEntry
 from post.models import AboutEntry
 from post.models import SponsorshipEntry
+from post.models import Seminar
 from forms import ContactForm
-
+from .models import timezone
 class HomePageDetailView(TemplateView):
     template_name = "homepage.html"
 
@@ -45,7 +47,6 @@ class NewsEntryDetailView(DetailView):
         else:
             context = self.get_context_data(object=self.object)
             return self.render_to_response(context)
-
 
 class CategoryDetailView(DetailView):
     model = CategoryEntry
@@ -126,16 +127,16 @@ def contactView(request):
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            choice = form.cleaned_data['Teams']
             try:
-                if choice == 'Sponsorluk':
-                    send_mail(subject, message, from_email, ['kaydu16@itu.edu.tr', None])
-                else:
-                    send_mail(subject, message, from_email, ['emre.kyd11@gmail.com', None])
+                send_mail(subject, message, from_email, ['erent15@itu.edu.tr', 'arslantas16@itu.edu.tr', None])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('success/')
+            return redirect(_('success/'))
     return render(request, "contact.html", {'form': form})
 
 def successView(request):
     return render(request, "success.html")
+
+def seminar_list(request):
+    seminars = Seminar.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, "seminar_list.html", {'seminars':seminars} )
