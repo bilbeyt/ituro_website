@@ -4,6 +4,16 @@
 <!DOCTYPE html>
 <html lang="tr">
     <head>
+   	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153543318-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-153543318-1');
+	</script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -103,9 +113,11 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a target="_blank" href="http://sis.ituro.org/accounts/register/" style="color:#18bc9c;"><b>{% trans "Register" %}</b></a></li>
+			<li><a href = "http://www.ituro.org/tr/haberler/ituro-2020-kurallar-ve-kaytlar-hakknda/" style="color:#18bc9c;"><b>{% trans "Register" %}</b></a></li>
+                        <!--<li><a target="_blank" href="http://sis.ituro.org/accounts/register/" style="color:#18bc9c;"><b>{% trans "Register" %}</b></a></li>-->
                         <li><a href="{% url "post:contact" %}">{% trans "Contact Us" %}</a>
-			<li><a target="_blank" href="http://sis.ituro.org/">{% trans "Login" %}</a></li>
+		    	<li><a href = "http://www.ituro.org/tr/haberler/ituro-2020-kurallar-ve-kaytlar-hakknda/"></a></li>
+			<!-- <li><a target="_blank" href="http://sis.ituro.org/">{% trans "Login" %}</a></li>-->
                         {% for common in context.common_list %}
                         <li><a href="{% url "post:common_detail" common.slug %}">{{ common.title }}</a></li>
                         {% endfor %}
@@ -148,7 +160,8 @@
                             <a href="https://www.facebook.com/ituro/" class="btn btn-social-icon btn-facebook" target="_blank" style="background-color: #3b5998; color: white"> <i class="fa fa-facebook"></i></a>
                             <a href="http://twitter.com/ituroorg" class="btn btn-social-icon btn-twitter" target="_blank" style="background-color: #55acee; color: white"><i class="fa fa-twitter"></i></a>
                             <a href="http://instagram.com/ituroorg" class="btn btn-social-icon btn-instagram" target="_blank" style="background-color: #125688; color: white"><i class="fa fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/user/ITURobotOlympics" class="btn btn-social-icon btn-youtube" target="_blank" style="background-color: #cd201f; color: white"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/company/i%CC%87t%C3%BC-robot-oli%CC%87mpi%CC%87yatlari" class="btn btn-social-icon btn-linkedin" target="_blank" style="background-color: #cd201f; color: white"><i class="fa fa-linkedin"></i></a>
+			    <a href="https://www.youtube.com/user/ITURobotOlympics" class="btn btn-social-icon btn-youtube" target="_blank" style="background-color: #cd201f; color: white"><i class="fa fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
