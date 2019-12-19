@@ -10,3 +10,4 @@ psycopg2==2.6.1
 rcssmin==1.0.6
 rjsmin==1.0.12
 six==1.10.0
+django-simple-captcha==0.5.12
