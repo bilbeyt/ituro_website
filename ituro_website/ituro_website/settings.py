@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'gallery',
     'post',
     'survey',
+    'captcha',
 ]
 
 SITE_ID=1
