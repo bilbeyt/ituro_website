@@ -1,5 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from captcha.fields import CaptchaField
+
 
 class ContactForm(forms.Form):
     from_email = forms.EmailField(widget=forms.TextInput(
@@ -20,3 +22,4 @@ class ContactForm(forms.Form):
 	    "placeholder": _("Enter your message here.")
 	}
     ), label=_("Message"), required=True)
+    captcha = CaptchaField()
