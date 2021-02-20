@@ -2,12 +2,13 @@ from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 from post.views import HomePageDetailView, AboutDetailView, \
     CategoryDetailView, SponsorshipDetailView, CommonDetailView, \
-    NewsEntryDetailView, contactView, successView
+    NewsEntryDetailView, contactView, successView, seminar_list
 
 
 urlpatterns = [
 
     url(r'^$', HomePageDetailView.as_view(), name="homepage"),
+    url(_(r'^seminar/$'), seminar_list , name="seminar_list"),
     url(_(r'^contact_us/$'), contactView, name="contact"),
     url(_(r'^contact_us/success/$'), successView, name="success"),
     url(_(r'^about/(?P<slug>[-_\w]+)/$'), AboutDetailView.as_view(),
@@ -21,4 +22,6 @@ urlpatterns = [
         name="news_detail"),
     url(r'^(?P<slug>[-_\w]+)/$', CommonDetailView.as_view(),
         name="common_detail"),
+	
+    
 ]

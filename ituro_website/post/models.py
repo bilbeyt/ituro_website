@@ -19,6 +19,17 @@ from robots.models import Url
 def get_upload_path(instance,filename):
     return "documents/{}/{}".format(instance.title,filename)
 
+class Seminar(models.Model):
+    title = models.CharField(max_length=200)
+    content = RichTextField(null=True,blank=True)
+    create_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+
+    def __str__(self):
+        return self.title
 
 class CommonEntry(models.Model):
     language_code = models.CharField(choices=settings.LANGUAGES,max_length=2)
@@ -56,6 +67,7 @@ class NewsEntry(models.Model):
 
     def get_absolute_url(self):
         return reverse("post:news_detail",args=(self.slug,))
+
 
 
 class CategoryEntry(models.Model):
